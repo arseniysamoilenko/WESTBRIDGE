@@ -4,6 +4,8 @@
   const nav = document.querySelector("[data-nav]");
   const counters = document.querySelectorAll("[data-count]");
   const forms = document.querySelectorAll("[data-lead-form]");
+  const orbitRing = document.querySelector("[data-orbit-ring]");
+  const orbitButtons = document.querySelectorAll("[data-orbit]");
 
   if (menu && nav) {
     menu.addEventListener("click", () => {
@@ -81,4 +83,15 @@
       }
     });
   });
+
+  if (orbitRing && orbitButtons.length) {
+    let offset = 0;
+
+    orbitButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        offset += button.getAttribute("data-orbit") === "next" ? -1 : 1;
+        orbitRing.style.setProperty("--orbit-offset", String(offset));
+      });
+    });
+  }
 })();

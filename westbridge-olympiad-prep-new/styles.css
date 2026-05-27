@@ -763,6 +763,112 @@ h3 {
   font-weight: 700;
 }
 
+.university-stage {
+  position: relative;
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr) 48px;
+  gap: 14px;
+  align-items: center;
+  margin-top: 42px;
+}
+
+.orbit-window {
+  position: relative;
+  height: 320px;
+  overflow: hidden;
+  perspective: 1100px;
+  border-radius: var(--radius);
+  background:
+    radial-gradient(circle at 50% 45%, rgba(249, 115, 22, 0.12), transparent 34%),
+    linear-gradient(180deg, rgba(255, 250, 241, 0.98), rgba(255, 250, 241, 0.62));
+  border: 1px solid var(--line);
+}
+
+.orbit-window::before {
+  content: "";
+  position: absolute;
+  inset: 54px 18%;
+  border: 1px solid rgba(16, 21, 31, 0.12);
+  border-radius: 50%;
+}
+
+.orbit-ring {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+  transform: translateZ(-340px) rotateY(calc(var(--orbit-offset, 0) * 45deg));
+  animation: orbitDrift 34s linear infinite;
+  transition: transform 600ms ease;
+}
+
+.university-stage:hover .orbit-ring {
+  animation-play-state: paused;
+}
+
+.orbit-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: grid;
+  width: min(230px, 54vw);
+  min-height: 118px;
+  place-items: center;
+  padding: 20px;
+  color: var(--ink);
+  text-align: center;
+  background: var(--white);
+  border: 1px solid rgba(16, 21, 31, 0.12);
+  border-radius: var(--radius);
+  box-shadow: 0 16px 46px rgba(16, 21, 31, 0.12);
+  transform:
+    translate(-50%, -50%)
+    rotateY(calc(var(--i) * 45deg))
+    translateZ(340px);
+  backface-visibility: hidden;
+}
+
+.orbit-card strong {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.6rem, 4vw, 2.55rem);
+  line-height: 1;
+}
+
+.orbit-card span {
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-weight: 820;
+}
+
+.orbit-control {
+  display: grid;
+  width: 48px;
+  height: 48px;
+  place-items: center;
+  color: var(--white);
+  background: var(--orange);
+  border: 0;
+  border-radius: 50%;
+  box-shadow: 0 12px 26px rgba(249, 115, 22, 0.28);
+  cursor: pointer;
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.orbit-control:hover,
+.orbit-control:focus-visible {
+  background: var(--orange-dark);
+  outline: none;
+}
+
+@keyframes orbitDrift {
+  from {
+    transform: translateZ(-340px) rotateY(calc(var(--orbit-offset, 0) * 45deg));
+  }
+  to {
+    transform: translateZ(-340px) rotateY(calc((var(--orbit-offset, 0) * 45deg) - 360deg));
+  }
+}
+
 .form-shell {
   display: grid;
   grid-template-columns: minmax(0, 0.78fr) minmax(320px, 0.72fr);
@@ -948,6 +1054,43 @@ h3 {
   .universities,
   .medal-grid {
     grid-template-columns: 1fr;
+  }
+
+  .university-stage {
+    grid-template-columns: 40px minmax(0, 1fr) 40px;
+    gap: 8px;
+  }
+
+  .orbit-window {
+    height: 260px;
+  }
+
+  .orbit-ring {
+    transform: translateZ(-250px) rotateY(calc(var(--orbit-offset, 0) * 45deg));
+  }
+
+  .orbit-card {
+    width: min(190px, 58vw);
+    min-height: 104px;
+    transform:
+      translate(-50%, -50%)
+      rotateY(calc(var(--i) * 45deg))
+      translateZ(250px);
+  }
+
+  .orbit-control {
+    width: 40px;
+    height: 40px;
+    font-size: 1.6rem;
+  }
+
+  @keyframes orbitDrift {
+    from {
+      transform: translateZ(-250px) rotateY(calc(var(--orbit-offset, 0) * 45deg));
+    }
+    to {
+      transform: translateZ(-250px) rotateY(calc((var(--orbit-offset, 0) * 45deg) - 360deg));
+    }
   }
 
   .ladder-row {
