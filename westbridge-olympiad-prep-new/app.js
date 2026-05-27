@@ -1,0 +1,84 @@
+(function () {
+  const body = document.body;
+  const menu = document.querySelector("[data-menu]");
+  const nav = document.querySelector("[data-nav]");
+  const counters = document.querySelectorAll("[data-count]");
+  const forms = document.querySelectorAll("[data-lead-form]");
+
+  if (menu && nav) {
+    menu.addEventListener("click", () => {
+      const open = body.classList.toggle("nav-open");
+      menu.setAttribute("aria-expanded", String(open));
+    });
+
+    nav.addEventListener("click", (event) => {
+      if (event.target instanceof HTMLAnchorElement) {
+        body.classList.remove("nav-open");
+        menu.setAttribute("aria-expanded", "false");
+      }
+    });
+  }
+
+  const observer = new IntersectionObserver(
+    (entries, obs) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        countUp(entry.target);
+        obs.unobserve(entry.target);
+      });
+    },
+    { threshold: 0.45 }
+  );
+
+  counters.forEach((counter) => observer.observe(counter));
+
+  function countUp(element) {
+    const target = Number(element.getAttribute("data-count") || "0");
+    const duration = 900;
+    const start = performance.now();
+
+    function tick(now) {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      element.textContent = Math.round(target * eased).toLocaleString("en-US");
+      if (progress < 1) requestAnimationFrame(tick);
+    }
+
+    requestAnimationFrame(tick);
+  }
+
+  forms.forEach((form) => {
+    const status = form.querySelector("[data-form-status]");
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      if (status) status.textContent = "Sending application...";
+
+      const payload = Object.fromEntries(new FormData(form).entries());
+
+      try {
+        const response = await fetch("/.netlify/functions/submit-application", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        });
+
+        if (!response.ok) throw new Error("Application endpoint unavailable");
+
+        form.reset();
+        if (status) {
+          status.textContent = "Application received. We will contact you with the test slot and payment details.";
+        }
+      } catch (error) {
+        const key = "westbridge-olympiad-preview-applications";
+        const stored = JSON.parse(localStorage.getItem(key) || "[]");
+        stored.push({ ...payload, createdAt: new Date().toISOString() });
+        localStorage.setItem(key, JSON.stringify(stored.slice(-30)));
+        form.reset();
+        if (status) {
+          status.textContent = "Preview mode: saved locally. Netlify and Supabase will store live applications after deployment.";
+        }
+      }
+    });
+  });
+})();

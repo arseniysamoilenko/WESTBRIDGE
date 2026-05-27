@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Apply | Join the WestBridge Olympiad Test</title>
+    <meta name="description" content="Apply for the WestBridge Olympiad Thinking Test in Hong Kong. Test fee HK$300.">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="logo" href="index.html" aria-label="WestBridge Olympiad Academy home">
+        <img src="https://www.youngcfoweekend.com/lovable-uploads/69105732-5144-4ab6-b58d-0c80ccc18c07.png" alt="WestBridge">
+        <span>WestBridge</span>
+      </a>
+      <button class="menu-button" type="button" data-menu aria-label="Open navigation" aria-expanded="false"><span></span><span></span></button>
+      <nav class="nav" data-nav aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="education.html">Education</a>
+        <a href="why-olympiads.html">Why Olympiad</a>
+        <a href="results.html">Results</a>
+        <a class="cta active" href="apply.html">Join the Test</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" style="--hero-image: url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=1800&q=82')">
+        <div class="hero-grid">
+          <div>
+            <p class="eyebrow">Apply</p>
+            <h1>Join the Olympiad Thinking Test.</h1>
+            <p class="lead">
+              The test is the entry point. It costs HK$300 and helps us decide whether the student is ready,
+              which subject is strongest, and what programme level makes sense.
+            </p>
+            <div class="hero-actions">
+              <a class="button primary" href="#form">Start application</a>
+              <a class="button secondary" href="education.html">Review the programme</a>
+            </div>
+          </div>
+          <aside class="decision-card">
+            <h3>After you apply</h3>
+            <div class="decision-path">
+              <div class="path-node"><b>1</b><span>We contact you with test timing and payment details.</span></div>
+              <div class="path-node"><b>2</b><span>The student completes the HK$300 diagnostic.</span></div>
+              <div class="path-node"><b>3</b><span>You receive a placement recommendation and monthly programme route.</span></div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section" id="form">
+        <div class="form-shell">
+          <div>
+            <p class="eyebrow">Test registration</p>
+            <h2>One form. Then we guide the rest.</h2>
+            <p class="muted">
+              Use this form for Hong Kong families interested in Olympiad preparation. It is Supabase-ready:
+              in preview mode it stores locally, and after deployment the Netlify function can save applications to Supabase.
+            </p>
+            <div class="price-panel" style="margin-top: 28px;">
+              <span>Diagnostic test fee</span>
+              <strong>HK$300</strong>
+              <p class="muted">The test is used for placement, subject recommendation, and readiness assessment.</p>
+            </div>
+          </div>
+
+          <form class="lead-form" name="olympiad-test-application" method="post" data-netlify="true" data-lead-form>
+            <input type="hidden" name="form-name" value="olympiad-test-application">
+            <label>
+              Parent name
+              <input name="parent_name" type="text" autocomplete="name" required>
+            </label>
+            <label>
+              Email
+              <input name="email" type="email" autocomplete="email" required>
+            </label>
+            <label>
+              Phone / WhatsApp
+              <input name="phone" type="tel" autocomplete="tel" required>
+            </label>
+            <label>
+              Student name
+              <input name="student_name" type="text" required>
+            </label>
+            <label>
+              Student grade / year
+              <input name="grade" type="text" placeholder="Example: Year 8, Grade 9, Form 3" required>
+            </label>
+            <label>
+              Interested subject
+              <select name="subject" required>
+                <option value="">Choose one</option>
+                <option>Not sure yet</option>
+                <option>Mathematics</option>
+                <option>Physics</option>
+                <option>Chemistry</option>
+                <option>Biology</option>
+                <option>Informatics</option>
+                <option>Geography</option>
+              </select>
+            </label>
+            <label>
+              Current school / background
+              <textarea name="message" rows="4" placeholder="School, current competition experience, target universities, concerns..."></textarea>
+            </label>
+            <button class="button primary" type="submit">Submit test application</button>
+            <p class="form-status" data-form-status role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+
+      <section class="section band">
+        <div class="split">
+          <div>
+            <p class="eyebrow">What we decide from the test</p>
+            <h2>The test is not only a filter. It is a map.</h2>
+          </div>
+          <p>
+            The best outcome is not always "accepted" or "not accepted." Sometimes the test shows the right subject,
+            the right starting level, or the missing habit the student must build first.
+          </p>
+        </div>
+        <div class="cards">
+          <article class="card dark-card"><span class="num">01</span><h3>Readiness</h3><p>Can the student handle Olympiad-style ambiguity and pressure?</p></article>
+          <article class="card dark-card"><span class="num">02</span><h3>Subject fit</h3><p>Which discipline gives the student the strongest long-term advantage?</p></article>
+          <article class="card dark-card"><span class="num">03</span><h3>Placement</h3><p>Which monthly cohort and tutor model should the student enter?</p></article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-grid">
+        <div>
+          <img src="https://www.youngcfoweekend.com/lovable-uploads/69105732-5144-4ab6-b58d-0c80ccc18c07.png" alt="WestBridge">
+          <p class="tiny">Apply for the HK$300 Olympiad Thinking Test.</p>
+        </div>
+        <nav aria-label="Footer navigation">
+          <a href="index.html">Home</a>
+          <a href="education.html">Education</a>
+          <a href="why-olympiads.html">Why Olympiad</a>
+          <a href="results.html">Results</a>
+        </nav>
+      </div>
+    </footer>
+    <script src="app.js"></script>
+  </body>
+</html>
