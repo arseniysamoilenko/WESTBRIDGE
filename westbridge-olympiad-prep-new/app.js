@@ -6,6 +6,9 @@
   const forms = document.querySelectorAll("[data-lead-form]");
   const orbitRing = document.querySelector("[data-orbit-ring]");
   const orbitButtons = document.querySelectorAll("[data-orbit]");
+  const revealItems = document.querySelectorAll(
+    ".section, .card, .loop-step, .subject-card, .tutor-card, .quote, .stat, .medal-card, .file-row, .ladder-row, .price-panel, .decision-card"
+  );
 
   if (menu && nav) {
     menu.addEventListener("click", () => {
@@ -33,6 +36,35 @@
   );
 
   counters.forEach((counter) => observer.observe(counter));
+
+  const revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+        }
+      });
+    },
+    { threshold: 0.14, rootMargin: "0px 0px -8% 0px" }
+  );
+
+  revealItems.forEach((item, index) => {
+    item.style.setProperty("--reveal-delay", `${Math.min(index % 6, 5) * 55}ms`);
+    revealObserver.observe(item);
+  });
+
+  function revealOnScroll() {
+    revealItems.forEach((item) => {
+      const rect = item.getBoundingClientRect();
+      if (rect.top < window.innerHeight * 0.88 && rect.bottom > 0) {
+        item.classList.add("is-visible");
+      }
+    });
+  }
+
+  revealOnScroll();
+  window.addEventListener("scroll", revealOnScroll, { passive: true });
+  window.addEventListener("resize", revealOnScroll);
 
   function countUp(element) {
     const target = Number(element.getAttribute("data-count") || "0");
