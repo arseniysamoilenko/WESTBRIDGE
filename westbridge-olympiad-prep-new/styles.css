@@ -922,6 +922,23 @@ h3 {
   align-items: stretch;
 }
 
+.story-rail {
+  display: flex;
+  grid-template-columns: none;
+  gap: 18px;
+  overflow-x: auto;
+  overflow-y: visible;
+  padding: 8px 4px 22px;
+  scroll-snap-type: x mandatory;
+  scrollbar-color: rgba(249, 115, 22, 0.55) rgba(16, 21, 31, 0.08);
+}
+
+.story-rail .story-quote {
+  flex: 0 0 min(420px, 82vw);
+  min-height: 360px;
+  scroll-snap-align: start;
+}
+
 .story-quote {
   padding-top: 30px;
 }
@@ -1065,6 +1082,68 @@ h3 {
     radial-gradient(circle at 16% 18%, rgba(249, 115, 22, 0.14), transparent 28%),
     linear-gradient(135deg, rgba(255, 250, 241, 0.84), rgba(255, 250, 241, 0.54));
   backdrop-filter: blur(12px);
+}
+
+.university-proof {
+  position: relative;
+  overflow: hidden;
+  min-height: 430px;
+  display: grid;
+  align-items: center;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background:
+    radial-gradient(circle at 16% 18%, rgba(249, 115, 22, 0.16), transparent 30%),
+    linear-gradient(135deg, rgba(255, 250, 241, 0.9), rgba(255, 250, 241, 0.64));
+  box-shadow: 0 18px 70px rgba(16, 21, 31, 0.08);
+}
+
+.university-proof .background-logos {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  backdrop-filter: none;
+}
+
+.university-proof .background-logos::before {
+  display: none;
+}
+
+.university-proof .background-logos img {
+  height: 112px;
+  padding: 22px;
+  opacity: 0.14;
+  background: rgba(255, 255, 255, 0.36);
+  transform: rotate(var(--logo-tilt, -3deg));
+}
+
+.university-proof .background-logos img:nth-child(2n) {
+  --logo-tilt: 3deg;
+}
+
+.university-proof .background-logos img:hover {
+  opacity: 0.22;
+  transform: translateY(-3px) rotate(var(--logo-tilt, -3deg));
+}
+
+.university-copy {
+  position: relative;
+  z-index: 1;
+  padding: clamp(28px, 6vw, 62px);
+  align-items: center;
+}
+
+.university-copy p {
+  color: var(--ink-soft);
+  font-weight: 680;
+}
+
+.ladder-actions {
+  margin-top: 28px;
 }
 
 .university-logo-field::before {
