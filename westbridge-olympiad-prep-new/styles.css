@@ -925,10 +925,10 @@ h3 {
 .story-rail {
   display: flex;
   grid-template-columns: none;
-  gap: 18px;
+  gap: 20px;
   overflow-x: auto;
   overflow-y: visible;
-  padding: 8px 4px 22px;
+  padding: 8px max(20px, calc((100vw - var(--max)) / 2)) 22px 4px;
   scroll-snap-type: x mandatory;
   scrollbar-width: none;
   -ms-overflow-style: none;
@@ -939,7 +939,7 @@ h3 {
 }
 
 .story-rail .story-quote {
-  flex: 0 0 min(420px, 82vw);
+  flex: 0 0 min(390px, 82vw);
   min-height: 360px;
   scroll-snap-align: start;
 }
