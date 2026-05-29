@@ -930,7 +930,12 @@ h3 {
   overflow-y: visible;
   padding: 8px 4px 22px;
   scroll-snap-type: x mandatory;
-  scrollbar-color: rgba(249, 115, 22, 0.55) rgba(16, 21, 31, 0.08);
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.story-rail::-webkit-scrollbar {
+  display: none;
 }
 
 .story-rail .story-quote {
