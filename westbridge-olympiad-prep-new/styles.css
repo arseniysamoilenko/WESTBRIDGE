@@ -441,17 +441,17 @@ h3 {
 }
 
 .why-proof-intro {
-  display: grid;
-  grid-template-columns: minmax(0, 0.95fr) minmax(320px, 0.62fr);
-  gap: clamp(30px, 6vw, 92px);
-  align-items: end;
+  max-width: 1050px;
+  margin: 0 auto;
   padding: clamp(26px, 4vw, 46px);
   overflow: hidden;
+  text-align: center;
   border: 1px solid rgba(249, 115, 22, 0.2);
   border-radius: calc(var(--radius) + 8px);
   background:
     radial-gradient(circle at 82% 16%, rgba(249, 115, 22, 0.22), transparent 28%),
-    linear-gradient(135deg, rgba(255, 250, 241, 0.96), rgba(246, 231, 207, 0.84));
+    radial-gradient(circle at 18% 84%, rgba(79, 143, 184, 0.12), transparent 30%),
+    linear-gradient(135deg, rgba(255, 250, 241, 0.98), rgba(246, 231, 207, 0.86));
   box-shadow: 0 22px 80px rgba(16, 21, 31, 0.09);
 }
 
@@ -472,6 +472,7 @@ h3 {
 .ladder-intro h2,
 .thinking-lead h2 {
   max-width: 980px;
+  margin-inline: auto;
 }
 
 .why-proof-intro p:last-child,
@@ -480,6 +481,11 @@ h3 {
   margin: 0;
   color: var(--ink-soft);
   font-size: clamp(1.02rem, 1.3vw, 1.18rem);
+}
+
+.why-proof-intro p:last-child {
+  max-width: 780px;
+  margin-inline: auto;
 }
 
 .band .split p,
@@ -871,10 +877,9 @@ h3 {
 }
 
 .ladder-intro {
-  display: grid;
-  grid-template-columns: minmax(0, 0.72fr) minmax(340px, 0.58fr);
-  gap: clamp(32px, 7vw, 110px);
-  align-items: end;
+  max-width: 920px;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .ladder-intro h2 {
@@ -884,6 +889,11 @@ h3 {
 .ladder-intro p,
 .ladder-section .tiny {
   color: rgba(255, 255, 255, 0.68);
+}
+
+.ladder-intro p {
+  max-width: 680px;
+  margin-inline: auto;
 }
 
 .ladder-row {
@@ -897,6 +907,26 @@ h3 {
   border-radius: var(--radius);
   background: rgba(255, 250, 241, 0.96);
   box-shadow: 0 18px 48px rgba(0, 0, 0, 0.14);
+}
+
+.ladder-row:nth-child(2) {
+  margin-left: 5%;
+}
+
+.ladder-row:nth-child(3) {
+  margin-left: 10%;
+}
+
+.ladder-row:nth-child(4) {
+  margin-left: 15%;
+}
+
+.ladder-row:nth-child(5) {
+  margin-left: 20%;
+}
+
+.ladder-row:nth-child(6) {
+  margin-left: 25%;
 }
 
 .ladder-bar {
@@ -1004,36 +1034,59 @@ h3 {
 }
 
 .thinking-section {
-  display: grid;
-  grid-template-columns: minmax(0, 0.72fr) minmax(420px, 0.9fr);
-  gap: clamp(30px, 6vw, 86px);
-  align-items: start;
+  display: block;
   background:
     radial-gradient(circle at 10% 20%, rgba(79, 143, 184, 0.16), transparent 28%),
     radial-gradient(circle at 88% 40%, rgba(249, 115, 22, 0.16), transparent 26%);
 }
 
 .thinking-lead {
-  position: sticky;
-  top: 110px;
+  max-width: 980px;
+  margin: 0 auto;
   padding: clamp(24px, 4vw, 42px);
-  border-left: 6px solid var(--orange);
-  background: rgba(255, 250, 241, 0.72);
-  box-shadow: 0 18px 58px rgba(16, 21, 31, 0.07);
+  color: var(--white);
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: calc(var(--radius) + 10px);
+  background:
+    radial-gradient(circle at 12% 18%, rgba(249, 115, 22, 0.3), transparent 30%),
+    linear-gradient(135deg, var(--navy), var(--navy-2));
+  box-shadow: 0 24px 78px rgba(16, 21, 31, 0.16);
+}
+
+.thinking-lead .eyebrow {
+  color: #ffb36d;
+}
+
+.thinking-lead p {
+  max-width: 720px;
+  margin-inline: auto;
+  color: rgba(255, 255, 255, 0.72);
 }
 
 .thinking-section .quote-grid {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  margin-top: 0;
+  grid-template-columns: 1.25fr 0.86fr 0.86fr;
+  align-items: stretch;
+  margin-top: -18px;
+  padding-inline: clamp(16px, 4vw, 54px);
 }
 
 .thinking-section .quote:first-child {
-  grid-column: 1 / -1;
+  grid-column: auto;
+  transform: translateY(44px) rotate(-1.2deg);
   color: var(--white);
   background:
     radial-gradient(circle at 86% 20%, rgba(249, 115, 22, 0.24), transparent 26%),
     linear-gradient(135deg, var(--navy), var(--navy-2));
   border-color: rgba(255, 255, 255, 0.16);
+}
+
+.thinking-section .quote:nth-child(2) {
+  transform: translateY(4px) rotate(1deg);
+}
+
+.thinking-section .quote:nth-child(3) {
+  transform: translateY(70px) rotate(-0.6deg);
 }
 
 .thinking-section .quote:first-child blockquote {
@@ -1169,6 +1222,26 @@ h3 {
     linear-gradient(rgba(16,21,31,0.045) 1px, transparent 1px),
     linear-gradient(90deg, rgba(16,21,31,0.045) 1px, transparent 1px);
   background-size: 42px 42px;
+}
+
+.programme-results .split {
+  align-items: center;
+}
+
+.programme-copy {
+  max-width: 760px;
+  margin: 22px 0 0;
+  color: var(--ink-soft);
+  font-size: clamp(1.04rem, 1.25vw, 1.18rem);
+}
+
+.programme-results .podium-context {
+  max-width: none;
+  margin-top: 34px;
+}
+
+.programme-results .podium-chart {
+  margin-top: 34px;
 }
 
 .medal-grid {
@@ -1730,6 +1803,17 @@ h3 {
   .thinking-lead {
     position: relative;
     top: auto;
+  }
+
+  .ladder-row {
+    margin-left: 0 !important;
+  }
+
+  .thinking-section .quote,
+  .thinking-section .quote:first-child,
+  .thinking-section .quote:nth-child(2),
+  .thinking-section .quote:nth-child(3) {
+    transform: none;
   }
 
   .cards,
