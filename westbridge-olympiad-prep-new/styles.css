@@ -501,6 +501,85 @@ h3 {
   margin-top: 44px;
 }
 
+.promise-section {
+  position: relative;
+  display: grid;
+  min-height: 96svh;
+  align-content: center;
+  overflow: hidden;
+}
+
+.promise-section::before {
+  content: "THINK";
+  position: absolute;
+  right: -0.08em;
+  top: 52%;
+  z-index: -1;
+  color: rgba(249, 115, 22, 0.055);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(8rem, 22vw, 23rem);
+  font-weight: 900;
+  line-height: 0.8;
+  transform: translateY(-50%) rotate(-6deg);
+}
+
+.promise-section .split {
+  display: block;
+  max-width: 980px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.promise-section .split h2 {
+  margin-inline: auto;
+}
+
+.promise-section .split > p {
+  max-width: 660px;
+  margin: 22px auto 0;
+}
+
+.promise-section .cards {
+  align-items: stretch;
+  margin-top: clamp(40px, 6vw, 78px);
+}
+
+.promise-section .card.is-visible:nth-child(1) {
+  transform: translateY(34px) rotate(-1.2deg);
+}
+
+.promise-section .card.is-visible:nth-child(2) {
+  transform: translateY(-8px) rotate(0.8deg);
+}
+
+.promise-section .card.is-visible:nth-child(3) {
+  transform: translateY(30px) rotate(-0.7deg);
+}
+
+.parent-route-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.parent-route-section::before {
+  content: "";
+  position: absolute;
+  left: max(20px, calc((100% - var(--max)) / 2));
+  bottom: clamp(70px, 10vw, 130px);
+  width: clamp(230px, 34vw, 520px);
+  aspect-ratio: 1;
+  z-index: -1;
+  background:
+    radial-gradient(circle, rgba(249, 115, 22, 0.09), transparent 58%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.74), rgba(255, 250, 241, 0.28));
+  transform: rotate(2deg);
+}
+
+.parent-route-section .cards {
+  width: min(100%, 920px);
+  margin-left: auto;
+}
+
 .card {
   position: relative;
   overflow: hidden;
@@ -611,6 +690,86 @@ h3 {
   font-size: 0.82rem;
   font-weight: 850;
   text-transform: uppercase;
+}
+
+.results-dashboard {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 10% 14%, rgba(249, 115, 22, 0.18), transparent 30%),
+    radial-gradient(circle at 88% 76%, rgba(79, 143, 184, 0.16), transparent 30%);
+}
+
+.results-dashboard::before {
+  content: "3376";
+  position: absolute;
+  right: -0.08em;
+  top: 22%;
+  z-index: -1;
+  color: rgba(16, 21, 31, 0.045);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(9rem, 24vw, 24rem);
+  font-weight: 900;
+  line-height: 0.8;
+}
+
+.results-dashboard .split {
+  display: block;
+  max-width: 880px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.results-dashboard .split h2,
+.results-dashboard .split p {
+  margin-inline: auto;
+}
+
+.results-dashboard .stat-strip {
+  gap: 14px;
+  overflow: visible;
+  border: 0;
+  background: transparent;
+}
+
+.results-dashboard .stat {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(16, 21, 31, 0.12);
+  border-radius: calc(var(--radius) + 8px);
+  box-shadow: 0 20px 60px rgba(16, 21, 31, 0.08);
+}
+
+.results-dashboard .stat:nth-child(1) {
+  background: linear-gradient(155deg, rgba(16, 25, 43, 0.96), rgba(38, 27, 20, 0.9));
+}
+
+.results-dashboard .stat:nth-child(2) {
+  background: linear-gradient(155deg, rgba(255, 250, 241, 0.98), rgba(255, 226, 197, 0.86));
+}
+
+.results-dashboard .stat:nth-child(3) {
+  background: linear-gradient(155deg, rgba(236, 247, 255, 0.96), rgba(255, 250, 241, 0.94));
+}
+
+.results-dashboard .stat:nth-child(4) {
+  background: linear-gradient(155deg, rgba(255, 236, 214, 0.98), rgba(255, 250, 241, 0.92));
+}
+
+.results-dashboard .stat:nth-child(1) strong,
+.results-dashboard .stat:nth-child(1) span {
+  color: var(--white);
+}
+
+.results-dashboard .stat::after {
+  content: "";
+  position: absolute;
+  right: -42px;
+  bottom: -42px;
+  width: 120px;
+  aspect-ratio: 1;
+  border: 18px solid rgba(249, 115, 22, 0.14);
+  border-radius: 50%;
 }
 
 .course-loop {
@@ -845,7 +1004,7 @@ h3 {
 
 .ladder {
   display: grid;
-  justify-items: center;
+  justify-items: end;
   gap: 14px;
   margin-top: 44px;
 }
@@ -948,6 +1107,11 @@ h3 {
   height: 100%;
   background: linear-gradient(90deg, var(--orange), var(--gold));
   border-radius: inherit;
+  transform-origin: left center;
+}
+
+.ladder-row.is-visible .ladder-bar span {
+  animation: barFill 1100ms cubic-bezier(0.18, 1, 0.22, 1) both;
 }
 
 .ladder-row strong:last-child {
@@ -1155,6 +1319,58 @@ h3 {
   padding-top: 30px;
 }
 
+.results-stories {
+  position: relative;
+  overflow: hidden;
+}
+
+.results-stories::before {
+  content: "";
+  position: absolute;
+  inset: 7% auto auto -80px;
+  width: clamp(180px, 24vw, 340px);
+  aspect-ratio: 1;
+  z-index: -1;
+  background: radial-gradient(circle, rgba(249, 115, 22, 0.18), transparent 66%);
+}
+
+.results-stories .split {
+  grid-template-columns: minmax(340px, 0.62fr) minmax(0, 0.9fr);
+  align-items: center;
+}
+
+.results-stories .story-quote {
+  border-color: rgba(249, 115, 22, 0.18);
+  background:
+    radial-gradient(circle at 90% 10%, rgba(249, 115, 22, 0.14), transparent 28%),
+    rgba(255, 250, 241, 0.88);
+}
+
+.results-stories .story-quote:nth-child(2n) {
+  background:
+    radial-gradient(circle at 12% 82%, rgba(79, 143, 184, 0.16), transparent 30%),
+    rgba(255, 250, 241, 0.9);
+}
+
+.results-stories .story-quote:nth-child(3n) {
+  color: var(--white);
+  background:
+    radial-gradient(circle at 88% 16%, rgba(249, 115, 22, 0.28), transparent 28%),
+    linear-gradient(135deg, var(--navy), var(--navy-2));
+}
+
+.results-stories .story-quote:nth-child(3n) blockquote {
+  color: var(--white);
+}
+
+.results-stories .story-quote:nth-child(3n) figcaption {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.results-stories .story-avatar {
+  border-color: rgba(249, 115, 22, 0.42);
+}
+
 .story-avatar {
   width: 72px;
   height: 72px;
@@ -1214,6 +1430,26 @@ h3 {
   color: var(--ink-soft);
 }
 
+.results-hero {
+  min-height: 82svh;
+  display: grid;
+  align-items: center;
+  color: var(--white);
+}
+
+.results-hero::before {
+  background:
+    radial-gradient(circle at 72% 22%, rgba(249, 115, 22, 0.34), transparent 26%),
+    linear-gradient(90deg, rgba(8, 13, 22, 0.96), rgba(8, 13, 22, 0.74) 54%, rgba(8, 13, 22, 0.48)),
+    url("https://images.pexels.com/photos/7092613/pexels-photo-7092613.jpeg?auto=compress&cs=tinysrgb&w=1800");
+  background-size: cover;
+  background-position: center;
+}
+
+.results-hero .lead {
+  color: rgba(255, 255, 255, 0.78);
+}
+
 .photo-wall::before {
   background:
     linear-gradient(90deg, rgba(255, 248, 235, 0.93), rgba(255, 248, 235, 0.78)),
@@ -1228,6 +1464,18 @@ h3 {
     linear-gradient(rgba(16,21,31,0.045) 1px, transparent 1px),
     linear-gradient(90deg, rgba(16,21,31,0.045) 1px, transparent 1px);
   background-size: 42px 42px;
+}
+
+.programme-results::before {
+  background:
+    linear-gradient(180deg, rgba(255, 248, 235, 0.9) 0%, rgba(255, 248, 235, 0.82) 72%, rgba(255, 248, 235, 1) 100%),
+    url("https://images.pexels.com/photos/31772890/pexels-photo-31772890.jpeg?auto=compress&cs=tinysrgb&w=1800");
+  background-size: cover;
+  background-position: center;
+}
+
+.programme-results {
+  padding-bottom: clamp(54px, 7vw, 96px);
 }
 
 .programme-results .split {
@@ -1248,6 +1496,7 @@ h3 {
 
 .programme-results .podium-chart {
   margin-top: 34px;
+  margin-bottom: 0;
 }
 
 .medal-grid {
@@ -1382,21 +1631,14 @@ h3 {
   transform: scaleY(1);
 }
 
-.podium-medal,
 .podium-block strong {
   position: relative;
   z-index: 1;
 }
 
-.podium-medal {
-  font-size: clamp(2.6rem, 6vw, 5rem);
-  line-height: 1;
-  filter: drop-shadow(0 10px 18px rgba(16, 21, 31, 0.18));
-}
-
 .podium-block strong {
-  margin-top: 12px;
-  font-size: clamp(1rem, 2vw, 1.45rem);
+  margin-top: 0;
+  font-size: clamp(1.35rem, 2.8vw, 2.2rem);
   text-transform: uppercase;
   letter-spacing: 0.1em;
 }
@@ -1515,6 +1757,57 @@ h3 {
 .university-copy p {
   color: var(--ink-soft);
   font-weight: 680;
+}
+
+.university-section {
+  padding-top: clamp(44px, 7vw, 88px);
+}
+
+.university-section .university-copy {
+  display: block;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.university-section .university-copy h2,
+.university-section .university-copy p {
+  margin-inline: auto;
+}
+
+.university-section .actions {
+  justify-content: center;
+}
+
+.proof-burst {
+  position: relative;
+  overflow: hidden;
+  color: var(--white);
+  background:
+    radial-gradient(circle at 12% 24%, rgba(249, 115, 22, 0.34), transparent 28%),
+    linear-gradient(135deg, var(--navy), #080d16 66%, #2a170d);
+}
+
+.proof-burst .split {
+  display: block;
+  max-width: 860px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.proof-burst h2 {
+  color: var(--white);
+  margin-inline: auto;
+}
+
+.proof-burst .split p {
+  max-width: 680px;
+  margin: 22px auto 0;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.proof-burst .actions {
+  justify-content: center;
 }
 
 .ladder-actions {
@@ -1658,6 +1951,57 @@ h3 {
 .orbit-control:focus-visible {
   background: var(--orange-dark);
   outline: none;
+}
+
+.card.is-visible,
+.quote.is-visible,
+.stat.is-visible,
+.price-panel.is-visible {
+  animation: floatSettle 900ms cubic-bezier(0.18, 1, 0.22, 1) both;
+}
+
+.feature-card.is-visible::before {
+  animation: symbolDrift 5s ease-in-out infinite;
+}
+
+.button.primary {
+  animation: buttonPulse 4s ease-in-out infinite;
+}
+
+@keyframes floatSettle {
+  0% {
+    filter: blur(4px);
+  }
+  100% {
+    filter: blur(0);
+  }
+}
+
+@keyframes symbolDrift {
+  0%, 100% {
+    transform: rotate(-10deg) translate(0, 0);
+  }
+  50% {
+    transform: rotate(-6deg) translate(-8px, -10px) scale(1.08);
+  }
+}
+
+@keyframes buttonPulse {
+  0%, 100% {
+    box-shadow: 0 14px 30px rgba(249, 115, 22, 0.28);
+  }
+  50% {
+    box-shadow: 0 18px 46px rgba(249, 115, 22, 0.42);
+  }
+}
+
+@keyframes barFill {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
 }
 
 @keyframes orbitDrift {
@@ -1809,6 +2153,16 @@ h3 {
   .thinking-lead {
     position: relative;
     top: auto;
+  }
+
+  .promise-section {
+    min-height: auto;
+  }
+
+  .promise-section .card.is-visible:nth-child(1),
+  .promise-section .card.is-visible:nth-child(2),
+  .promise-section .card.is-visible:nth-child(3) {
+    transform: translateY(0) rotate(0);
   }
 
   .ladder-row {
