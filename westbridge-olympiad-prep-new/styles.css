@@ -845,6 +845,7 @@ h3 {
 
 .ladder {
   display: grid;
+  justify-items: center;
   gap: 14px;
   margin-top: 44px;
 }
@@ -901,6 +902,7 @@ h3 {
   grid-template-columns: 190px 1fr 150px;
   gap: 18px;
   align-items: center;
+  width: var(--ladder-width, 100%);
   padding: 18px;
   color: var(--ink);
   border: 1px solid var(--line);
@@ -909,24 +911,28 @@ h3 {
   box-shadow: 0 18px 48px rgba(0, 0, 0, 0.14);
 }
 
+.ladder-row:nth-child(1) {
+  --ladder-width: 58%;
+}
+
 .ladder-row:nth-child(2) {
-  margin-left: 5%;
+  --ladder-width: 66%;
 }
 
 .ladder-row:nth-child(3) {
-  margin-left: 10%;
+  --ladder-width: 74%;
 }
 
 .ladder-row:nth-child(4) {
-  margin-left: 15%;
+  --ladder-width: 82%;
 }
 
 .ladder-row:nth-child(5) {
-  margin-left: 20%;
+  --ladder-width: 91%;
 }
 
 .ladder-row:nth-child(6) {
-  margin-left: 25%;
+  --ladder-width: 100%;
 }
 
 .ladder-bar {
@@ -1941,6 +1947,7 @@ h3 {
   .ladder-row {
     grid-template-columns: 1fr;
     gap: 10px;
+    width: 100%;
   }
 
   .ladder-row strong:last-child {
