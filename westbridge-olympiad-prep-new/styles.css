@@ -14,7 +14,7 @@
   --line: rgba(16, 21, 31, 0.13);
   --shadow: 0 22px 70px rgba(16, 21, 31, 0.16);
   --radius: 14px;
-  --max: 1180px;
+  --max: 1360px;
 }
 
 * {
@@ -434,6 +434,54 @@ h3 {
   font-size: 1.08rem;
 }
 
+.why-proof-intro,
+.ladder-intro,
+.thinking-lead {
+  position: relative;
+}
+
+.why-proof-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(320px, 0.62fr);
+  gap: clamp(30px, 6vw, 92px);
+  align-items: end;
+  padding: clamp(26px, 4vw, 46px);
+  overflow: hidden;
+  border: 1px solid rgba(249, 115, 22, 0.2);
+  border-radius: calc(var(--radius) + 8px);
+  background:
+    radial-gradient(circle at 82% 16%, rgba(249, 115, 22, 0.22), transparent 28%),
+    linear-gradient(135deg, rgba(255, 250, 241, 0.96), rgba(246, 231, 207, 0.84));
+  box-shadow: 0 22px 80px rgba(16, 21, 31, 0.09);
+}
+
+.why-proof-intro::after {
+  content: "";
+  position: absolute;
+  right: clamp(18px, 5vw, 74px);
+  top: 50%;
+  width: clamp(120px, 18vw, 260px);
+  aspect-ratio: 1;
+  border: 1px solid rgba(249, 115, 22, 0.22);
+  border-radius: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.why-proof-intro h2,
+.ladder-intro h2,
+.thinking-lead h2 {
+  max-width: 980px;
+}
+
+.why-proof-intro p:last-child,
+.ladder-intro p,
+.thinking-lead p {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: clamp(1.02rem, 1.3vw, 1.18rem);
+}
+
 .band .split p,
 .band .muted,
 .band .tiny {
@@ -795,6 +843,49 @@ h3 {
   margin-top: 44px;
 }
 
+.ladder-section {
+  position: relative;
+  overflow: hidden;
+  color: var(--white);
+  background:
+    radial-gradient(circle at 12% 20%, rgba(249, 115, 22, 0.36), transparent 26%),
+    radial-gradient(circle at 92% 84%, rgba(79, 143, 184, 0.26), transparent 28%),
+    linear-gradient(135deg, #10151f 0%, #17243c 58%, #2b1a0f 100%);
+  isolation: isolate;
+}
+
+.ladder-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.055) 1px, transparent 1px);
+  background-size: 46px 46px;
+  mask-image: linear-gradient(90deg, rgba(0,0,0,0.85), rgba(0,0,0,0.18));
+}
+
+.ladder-section .eyebrow {
+  color: #ffb36d;
+}
+
+.ladder-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 0.72fr) minmax(340px, 0.58fr);
+  gap: clamp(32px, 7vw, 110px);
+  align-items: end;
+}
+
+.ladder-intro h2 {
+  color: var(--white);
+}
+
+.ladder-intro p,
+.ladder-section .tiny {
+  color: rgba(255, 255, 255, 0.68);
+}
+
 .ladder-row {
   display: grid;
   grid-template-columns: 190px 1fr 150px;
@@ -804,7 +895,8 @@ h3 {
   color: var(--ink);
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  background: var(--white);
+  background: rgba(255, 250, 241, 0.96);
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.14);
 }
 
 .ladder-bar {
@@ -829,7 +921,7 @@ h3 {
 
 .admissions-file {
   display: grid;
-  grid-template-columns: minmax(0, 0.88fr) minmax(320px, 0.72fr);
+  grid-template-columns: minmax(0, 1.06fr) minmax(360px, 0.82fr);
   gap: clamp(28px, 6vw, 70px);
   align-items: stretch;
   margin-top: 44px;
@@ -854,20 +946,34 @@ h3 {
 
 .file-list {
   display: grid;
-  gap: 1px;
+  gap: 0;
   overflow: hidden;
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  background: var(--line);
+  background: rgba(255, 250, 241, 0.86);
+  box-shadow: 0 18px 54px rgba(16, 21, 31, 0.08);
 }
 
 .file-row {
+  position: relative;
   display: grid;
   grid-template-columns: 118px 1fr;
   gap: 18px;
   align-items: start;
   padding: 22px;
-  background: var(--paper-2);
+  background:
+    linear-gradient(90deg, rgba(249, 115, 22, 0.08), transparent 34%),
+    var(--paper-2);
+}
+
+.file-row + .file-row {
+  border-top: 1px solid rgba(16, 21, 31, 0.13);
+}
+
+.file-row:nth-child(even) {
+  background:
+    linear-gradient(90deg, rgba(79, 143, 184, 0.1), transparent 34%),
+    #fff7ea;
 }
 
 .file-row strong {
@@ -895,6 +1001,48 @@ h3 {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 16px;
   margin-top: 44px;
+}
+
+.thinking-section {
+  display: grid;
+  grid-template-columns: minmax(0, 0.72fr) minmax(420px, 0.9fr);
+  gap: clamp(30px, 6vw, 86px);
+  align-items: start;
+  background:
+    radial-gradient(circle at 10% 20%, rgba(79, 143, 184, 0.16), transparent 28%),
+    radial-gradient(circle at 88% 40%, rgba(249, 115, 22, 0.16), transparent 26%);
+}
+
+.thinking-lead {
+  position: sticky;
+  top: 110px;
+  padding: clamp(24px, 4vw, 42px);
+  border-left: 6px solid var(--orange);
+  background: rgba(255, 250, 241, 0.72);
+  box-shadow: 0 18px 58px rgba(16, 21, 31, 0.07);
+}
+
+.thinking-section .quote-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: 0;
+}
+
+.thinking-section .quote:first-child {
+  grid-column: 1 / -1;
+  color: var(--white);
+  background:
+    radial-gradient(circle at 86% 20%, rgba(249, 115, 22, 0.24), transparent 26%),
+    linear-gradient(135deg, var(--navy), var(--navy-2));
+  border-color: rgba(255, 255, 255, 0.16);
+}
+
+.thinking-section .quote:first-child blockquote {
+  color: var(--white);
+  font-size: clamp(1.35rem, 2.3vw, 2.25rem);
+}
+
+.thinking-section .quote:first-child figcaption {
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .quote {
@@ -1072,6 +1220,17 @@ h3 {
     linear-gradient(180deg, rgba(255, 250, 241, 0.84), rgba(255, 250, 241, 0.56));
   box-shadow: 0 24px 90px rgba(16, 21, 31, 0.12);
   backdrop-filter: blur(12px);
+}
+
+.podium-context {
+  max-width: 880px;
+  margin: 24px 0 0;
+  padding: 18px 20px;
+  color: var(--ink-soft);
+  border-left: 5px solid var(--orange);
+  background: rgba(255, 250, 241, 0.78);
+  box-shadow: 0 14px 42px rgba(16, 21, 31, 0.08);
+  backdrop-filter: blur(10px);
 }
 
 .podium-chart::before {
@@ -1561,13 +1720,22 @@ h3 {
   .hero-grid,
   .split,
   .form-shell,
-  .admissions-file {
+  .admissions-file,
+  .why-proof-intro,
+  .ladder-intro,
+  .thinking-section {
     grid-template-columns: 1fr;
+  }
+
+  .thinking-lead {
+    position: relative;
+    top: auto;
   }
 
   .cards,
   .tutor-grid,
   .quote-grid,
+  .thinking-section .quote-grid,
   .course-loop,
   .subject-grid,
   .stat-strip,
