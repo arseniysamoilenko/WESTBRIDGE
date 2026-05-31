@@ -7,7 +7,7 @@
   const orbitRing = document.querySelector("[data-orbit-ring]");
   const orbitButtons = document.querySelectorAll("[data-orbit]");
   const revealItems = document.querySelectorAll(
-    ".section, .card, .loop-step, .subject-card, .tutor-card, .quote, .stat, .medal-card, .file-row, .ladder-row, .price-panel, .decision-card"
+    ".section, .card, .loop-step, .subject-card, .tutor-card, .quote, .stat, .medal-card, .podium-chart, .file-row, .ladder-row, .price-panel, .decision-card"
   );
 
   if (menu && nav) {
