@@ -1,49 +1,43 @@
-# WestBridge Olympiad Academy Website
+# WestBridge Olympiad Academy Hong Kong
 
-Professional landing website for WestBridge Olympiad preparation services.
+Fresh multi-page website for WestBridge Olympiad preparation in Hong Kong.
 
-## What is included
+## Pages
 
-- Static, deployable front end: `index.html`, `styles.css`, `app.js`
-- Cinematic placeholder photography from Pexels, ready to replace with WestBridge ceremony media
-- Consultation form with preview-mode local storage fallback
-- Netlify Function backend: `functions/submit-lead.js`
-- Supabase lead table schema: `backend/supabase-schema.sql`
-- Netlify deployment config: `netlify.toml`
+- `index.html` - home and dream/sales page
+- `education.html` - course structure, monthly programme, subjects, tutors
+- `why-olympiads.html` - admissions signal, Olympiad ladder, fictional success stories
+- `results.html` - medal dashboard, ceremony-photo proof section, placeholder stories
+- `apply.html` - HK$300 Olympiad Thinking Test application form
 
-## Free-service stack
+## Free deployment stack
 
-Use this setup for a production-ready launch with no paid infrastructure at the start:
+- Hosting: Netlify
+- Backend: Netlify Functions
+- Storage: Supabase
 
-- Hosting: Netlify free tier
-- Lead storage: Supabase free tier
-- Media storage later: Supabase Storage or Cloudinary free tier
-- Domain/DNS: connect the Olympiad domain inside Netlify
-
-## Deployment steps
+## Supabase setup
 
 1. Create a Supabase project.
 2. Run `backend/supabase-schema.sql` in the Supabase SQL editor.
 3. Deploy this folder to Netlify.
-4. Add these Netlify environment variables:
+4. Add Netlify environment variables:
    - `SUPABASE_URL`
    - `SUPABASE_SERVICE_ROLE_KEY`
-5. Submit the form once and confirm the row appears in `public.olympiad_leads`.
+5. Submit the Apply form and confirm a new row in `public.olympiad_test_applications`.
 
-## Replacing placeholder media
+## Content notes
 
-The current background images are remote placeholders. Replace these URLs in `index.html` and `styles.css`:
+- The tutor cards are placeholders for real photos and bios.
+- The success stories are fictional placeholders and should be replaced with verified stories and permissions.
+- The university-admissions percentages are illustrative signal estimates, not guarantees or official university data.
+- The current logo is loaded from the Young CFO Weekend site:
+  `https://www.youngcfoweekend.com/lovable-uploads/69105732-5144-4ab6-b58d-0c80ccc18c07.png`
 
-- Hero background: `.hero-media` in `styles.css`
-- Tutor/method image: `.faculty-image` in `styles.css`
-- Awards photo wall: `.photo-wall` image URLs in `index.html`
+## Media to replace later
 
-For final production, upload WestBridge-owned photos to Supabase Storage or Cloudinary and use optimized delivery URLs.
-
-## Content still needed
-
-- Verified final medal statistics
-- Real tutor names, bios, and credentials
-- Success-story approvals and student/parent quotes
-- Final phone, email, WhatsApp, and social links
-- Official brand colors and logo files
+- Hero images
+- Tutor photos
+- Award ceremony photo wall
+- Student success-story photos
+- Real medal certificates or press screenshots
