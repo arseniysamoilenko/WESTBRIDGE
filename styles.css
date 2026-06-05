@@ -1495,8 +1495,16 @@ h3 {
 }
 
 .programme-results .podium-chart {
-  margin-top: 34px;
+  margin-top: 0;
   margin-bottom: 0;
+}
+
+.podium-showcase {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 0.38fr);
+  gap: clamp(16px, 3vw, 30px);
+  align-items: stretch;
+  margin-top: 34px;
 }
 
 .medal-grid {
@@ -1538,8 +1546,8 @@ h3 {
   gap: clamp(10px, 2.2vw, 26px);
   align-items: end;
   margin-top: 54px;
-  min-height: clamp(360px, 42vw, 560px);
-  padding: clamp(22px, 4vw, 42px) clamp(14px, 3vw, 34px) clamp(18px, 3vw, 30px);
+  min-height: clamp(260px, 30vw, 380px);
+  padding: clamp(18px, 3vw, 30px) clamp(12px, 2.4vw, 26px) clamp(16px, 2.4vw, 24px);
   overflow: hidden;
   border: 1px solid rgba(16, 21, 31, 0.12);
   border-radius: var(--radius);
@@ -1577,7 +1585,7 @@ h3 {
   align-items: end;
   gap: 16px;
   height: 100%;
-  min-height: 280px;
+  min-height: 210px;
 }
 
 .podium-value {
@@ -1585,7 +1593,7 @@ h3 {
   color: var(--ink);
   text-align: center;
   font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(2.1rem, 5vw, 4.6rem);
+  font-size: clamp(1.75rem, 3.6vw, 3.45rem);
   font-weight: 800;
   line-height: 1;
   text-shadow: 0 12px 34px rgba(16, 21, 31, 0.16);
@@ -1601,7 +1609,7 @@ h3 {
   place-items: center;
   overflow: hidden;
   min-height: var(--podium-height);
-  padding: 24px 12px;
+  padding: 18px 10px;
   color: var(--podium-text);
   border: 1px solid rgba(255, 255, 255, 0.46);
   border-radius: 16px 16px 8px 8px;
@@ -1638,13 +1646,13 @@ h3 {
 
 .podium-block strong {
   margin-top: 0;
-  font-size: clamp(1.35rem, 2.8vw, 2.2rem);
+  font-size: clamp(1rem, 1.9vw, 1.55rem);
   text-transform: uppercase;
   letter-spacing: 0.1em;
 }
 
 .podium-silver {
-  --podium-height: clamp(160px, 24vw, 300px);
+  --podium-height: clamp(118px, 15vw, 210px);
   --podium-top: #f8fbff;
   --podium-bottom: #aeb8c6;
   --podium-shadow: rgba(98, 110, 128, 0.3);
@@ -1652,7 +1660,7 @@ h3 {
 }
 
 .podium-gold {
-  --podium-height: clamp(230px, 32vw, 420px);
+  --podium-height: clamp(160px, 20vw, 270px);
   --podium-top: #ffe9a8;
   --podium-bottom: #d9a11d;
   --podium-shadow: rgba(217, 161, 29, 0.34);
@@ -1660,11 +1668,75 @@ h3 {
 }
 
 .podium-bronze {
-  --podium-height: clamp(130px, 20vw, 250px);
+  --podium-height: clamp(92px, 12vw, 170px);
   --podium-top: #ffd0a8;
   --podium-bottom: #b96b2d;
   --podium-shadow: rgba(185, 107, 45, 0.32);
   --podium-text: #3d1f0b;
+}
+
+.method-proof {
+  position: relative;
+  display: grid;
+  align-content: center;
+  gap: 16px;
+  overflow: hidden;
+  min-height: clamp(260px, 30vw, 380px);
+  padding: clamp(24px, 4vw, 38px);
+  color: var(--white);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: var(--radius);
+  background:
+    radial-gradient(circle at 86% 18%, rgba(249, 115, 22, 0.36), transparent 30%),
+    linear-gradient(135deg, var(--navy), #18243a 60%, #3a2113);
+  box-shadow: 0 24px 90px rgba(16, 21, 31, 0.16);
+}
+
+.method-proof::after {
+  content: "";
+  position: absolute;
+  right: -54px;
+  bottom: -54px;
+  width: 150px;
+  aspect-ratio: 1;
+  border: 22px solid rgba(249, 115, 22, 0.2);
+  border-radius: 50%;
+}
+
+.method-proof span {
+  color: #ffb36d;
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.method-proof strong {
+  max-width: 360px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2rem, 3.5vw, 3.45rem);
+  line-height: 0.98;
+}
+
+.method-proof p {
+  max-width: 380px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.proof-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.proof-pills b {
+  padding: 9px 11px;
+  color: var(--white);
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+  font-size: 0.82rem;
 }
 
 .universities {
@@ -2144,6 +2216,7 @@ h3 {
   .split,
   .form-shell,
   .admissions-file,
+  .podium-showcase,
   .why-proof-intro,
   .ladder-intro,
   .thinking-section {
