@@ -2,6 +2,7 @@
   const body = document.body;
   const menu = document.querySelector("[data-menu]");
   const nav = document.querySelector("[data-nav]");
+  const introGate = document.querySelector("[data-intro-gate]");
   const counters = document.querySelectorAll("[data-count]");
   const forms = document.querySelectorAll("[data-lead-form]");
   const orbitRing = document.querySelector("[data-orbit-ring]");
@@ -9,6 +10,10 @@
   const revealItems = document.querySelectorAll(
     ".section, .card, .loop-step, .subject-card, .tutor-card, .quote, .stat, .medal-card, .podium-chart, .file-row, .ladder-row, .price-panel, .decision-card"
   );
+
+  if (introGate) {
+    setupIntroGate(introGate);
+  }
 
   if (menu && nav) {
     menu.addEventListener("click", () => {
@@ -79,6 +84,47 @@
     }
 
     requestAnimationFrame(tick);
+  }
+
+  function setupIntroGate(gate) {
+    const storageKey = "westbridgeIntroSeen";
+    let shouldSkip = document.documentElement.classList.contains("intro-skipped");
+
+    try {
+      shouldSkip = shouldSkip || sessionStorage.getItem(storageKey) === "1";
+      sessionStorage.setItem(storageKey, "1");
+    } catch (error) {
+      shouldSkip = true;
+    }
+
+    if (shouldSkip || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      gate.remove();
+      body.classList.remove("intro-active");
+      document.documentElement.classList.add("intro-skipped");
+      return;
+    }
+
+    body.classList.add("intro-active");
+
+    const start = () => {
+      if (gate.classList.contains("is-taking")) return;
+      gate.classList.add("is-taking");
+      window.setTimeout(() => {
+        gate.classList.add("is-done");
+        body.classList.remove("intro-active");
+      }, 2350);
+      window.setTimeout(() => {
+        gate.remove();
+      }, 3100);
+    };
+
+    gate.addEventListener("click", start);
+    gate.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        start();
+      }
+    });
   }
 
   forms.forEach((form) => {
