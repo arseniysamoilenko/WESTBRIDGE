@@ -104,11 +104,11 @@ body.intro-active {
 
 .intro-word {
   position: absolute;
-  top: 50%;
+  top: 56%;
   z-index: 2;
   color: rgba(255, 255, 255, 0.96);
   font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(4rem, 13vw, 15rem);
+  font-size: clamp(4rem, 10.8vw, 12.8rem);
   font-weight: 900;
   letter-spacing: 0;
   line-height: 0.82;
@@ -119,11 +119,13 @@ body.intro-active {
 }
 
 .intro-word-left {
-  left: clamp(18px, 7vw, 118px);
+  left: 50%;
+  transform: translate(calc(-100% - clamp(92px, 12vw, 178px)), -50%);
 }
 
 .intro-word-right {
-  right: clamp(18px, 9vw, 140px);
+  left: 50%;
+  transform: translate(clamp(92px, 12vw, 178px), -50%);
 }
 
 .intro-medal-wrap {
@@ -304,11 +306,11 @@ body.intro-active {
 }
 
 .intro-gate.is-taking .intro-hand {
-  animation: handGrab 1.65s cubic-bezier(0.2, 0.9, 0.2, 1) forwards;
+  animation: handGrab 2.25s cubic-bezier(0.2, 0.9, 0.2, 1) forwards;
 }
 
 .intro-gate.is-taking .intro-medal-wrap {
-  animation: medalTaken 1.9s cubic-bezier(0.22, 1, 0.36, 1) 0.55s forwards;
+  animation: medalTaken 2.05s cubic-bezier(0.22, 1, 0.36, 1) 0.48s forwards;
 }
 
 .intro-gate.is-taking .intro-word-left {
@@ -2379,20 +2381,25 @@ h3 {
     opacity: 0;
     transform: translateX(-50%) rotate(-4deg) scale(0.96);
   }
-  34% {
+  26% {
     bottom: 12vh;
     opacity: 1;
     transform: translateX(-50%) rotate(-4deg) scale(1);
   }
-  58% {
+  46% {
     bottom: 20vh;
     opacity: 1;
     transform: translateX(-50%) rotate(2deg) scale(1.02);
   }
-  100% {
+  62% {
     bottom: 11vh;
     opacity: 1;
     transform: translateX(-50%) rotate(6deg) scale(1.02);
+  }
+  100% {
+    bottom: -42vh;
+    opacity: 0;
+    transform: translateX(-50%) rotate(8deg) scale(0.98);
   }
 }
 
@@ -2405,9 +2412,13 @@ h3 {
     transform: translateY(6%) scale(0.96) rotate(3deg);
     opacity: 1;
   }
-  100% {
-    transform: translateY(118vh) scale(0.86) rotate(12deg);
+  64% {
+    transform: translateY(28vh) scale(0.9) rotate(8deg);
     opacity: 1;
+  }
+  100% {
+    transform: translateY(128vh) scale(0.82) rotate(12deg);
+    opacity: 0;
   }
 }
 
@@ -2616,22 +2627,25 @@ h3 {
 
 @media (max-width: 640px) {
   .intro-word {
-    top: 25%;
+    top: 56%;
     font-size: clamp(3.4rem, 18vw, 5.8rem);
   }
 
   .intro-word-left {
-    left: 20px;
+    left: 50%;
+    transform: translate(calc(-100% - clamp(58px, 20vw, 92px)), -50%);
   }
 
   .intro-word-right {
-    right: 20px;
+    left: 50%;
+    right: auto;
+    transform: translate(clamp(58px, 20vw, 92px), -50%);
   }
 
   .intro-medal-wrap {
-    width: min(46vw, 190px);
-    height: min(72vw, 300px);
-    transform: translateY(7%);
+    width: min(42vw, 176px);
+    height: min(68vw, 286px);
+    transform: translateY(-4%);
   }
 
   .site-header {

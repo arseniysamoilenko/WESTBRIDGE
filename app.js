@@ -112,10 +112,10 @@
       window.setTimeout(() => {
         gate.classList.add("is-done");
         body.classList.remove("intro-active");
-      }, 2350);
+      }, 2600);
       window.setTimeout(() => {
         gate.remove();
-      }, 3100);
+      }, 3300);
     };
 
     gate.addEventListener("click", start);
