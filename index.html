@@ -5,41 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>WestBridge Olympiad Academy Hong Kong</title>
     <meta name="description" content="WestBridge Olympiad Academy prepares Hong Kong students for mathematics, physics, chemistry, biology, informatics, and geography Olympiads.">
-    <script>
-      try {
-        if (sessionStorage.getItem("westbridgeIntroSeen") === "1") {
-          document.documentElement.classList.add("intro-skipped");
-        }
-      } catch (error) {
-        document.documentElement.classList.add("intro-skipped");
-      }
-    </script>
-    <link rel="stylesheet" href="styles.css?v=18">
+    <link rel="stylesheet" href="styles.css?v=19">
   </head>
   <body>
-    <div class="intro-gate" data-intro-gate role="button" tabindex="0" aria-label="Enter WestBridge Olympiad Academy">
-      <div class="intro-word intro-word-left">TAKE</div>
-      <div class="intro-word intro-word-right">IT</div>
-      <div class="intro-medal-wrap" aria-hidden="true">
-        <div class="intro-ribbon">
-          <span></span>
-          <span></span>
-        </div>
-        <div class="intro-medal">
-          <i></i>
-        </div>
-      </div>
-      <div class="intro-hand" aria-hidden="true">
-        <span class="finger finger-one"></span>
-        <span class="finger finger-two"></span>
-        <span class="finger finger-three"></span>
-        <span class="finger finger-four"></span>
-        <span class="thumb"></span>
-        <span class="palm"></span>
-        <span class="wrist"></span>
-      </div>
-      <div class="intro-hint">Click anywhere</div>
-    </div>
     <header class="site-header">
       <a class="logo" href="index.html" aria-label="WestBridge Olympiad Academy home">
         <img src="https://www.youngcfoweekend.com/lovable-uploads/69105732-5144-4ab6-b58d-0c80ccc18c07.png" alt="WestBridge">
@@ -58,72 +26,84 @@
     </header>
 
     <main>
-      <section class="hero" style="--hero-image: url('https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=1800&q=82')">
+      <section class="hero home-hero">
         <div class="hero-grid">
-          <div>
+          <div class="hero-copy">
             <p class="eyebrow">Hong Kong Olympiad preparation</p>
-            <h1>Olympiads turn ambition into proof.</h1>
+            <h1>The test finds the route. The programme builds the proof.</h1>
             <p class="lead">
-              WestBridge prepares ambitious Hong Kong students for the competitions that reveal real depth:
-              original thinking, consistency, and the courage to work beyond the school syllabus.
+              WestBridge helps ambitious students turn raw ability into competition results: clear subject choice,
+              serious weekly training, and the kind of academic evidence top universities understand.
             </p>
             <div class="hero-actions">
               <a class="button primary" href="apply.html">Join the Test - HK$300</a>
               <a class="button secondary" href="education.html">See the programme</a>
             </div>
+            <div class="hero-stats" aria-label="WestBridge programme highlights">
+              <span><b>2</b> lessons weekly</span>
+              <span><b>1</b> test weekly</span>
+              <span><b>HK$300</b> entry test</span>
+            </div>
           </div>
           <aside class="decision-card" aria-label="What happens after the test">
-            <h3>Parents do one thing first.</h3>
-            <p>Register for the diagnostic. After that, we combine the student's interests, family preferences, and test results into a clear route.</p>
+            <span class="panel-label">Start here</span>
+            <h3>One test. Then we carry the planning.</h3>
+            <p>The student takes the diagnostic. We read the thinking pattern, listen to subject preferences, and build the monthly route.</p>
             <div class="decision-path">
-              <div class="path-node"><b>1</b><span>Student takes the Olympiad Thinking Test.</span></div>
-              <div class="path-node"><b>2</b><span>We discuss subject preferences and read the thinking pattern.</span></div>
-              <div class="path-node"><b>3</b><span>Together, we choose the right monthly programme.</span></div>
+              <div class="path-node"><b>1</b><span>Take the Olympiad Thinking Test.</span></div>
+              <div class="path-node"><b>2</b><span>Choose the subject with the strongest signal.</span></div>
+              <div class="path-node"><b>3</b><span>Train with lessons, tests, homework, and tutor review.</span></div>
             </div>
           </aside>
         </div>
       </section>
 
       <section class="section promise-section">
-        <div class="split">
+        <div class="center-copy">
           <div>
-            <p class="eyebrow">The promise</p>
-            <h2>Olympiad training should feel difficult, clear, and worth it.</h2>
+            <p class="eyebrow">Built for proof</p>
+            <h2>Hard work is easier when the system is obvious.</h2>
           </div>
           <p>
-            Strong students grow faster inside a system: the right problems, consistent pressure, correction from someone
-            who knows the standard, and enough months of honest repetition.
+            Parents should not have to decode the Olympiad world. We make the route simple enough to start,
+            and demanding enough to matter.
           </p>
         </div>
         <div class="cards">
-          <article class="card feature-card" data-symbol="◆">
+          <article class="card feature-card" data-symbol="+">
             <span class="num">01</span>
-            <h3>Selective start</h3>
-            <p>Every student begins with the HK$300 test so we can identify reasoning style, subject fit, and readiness.</p>
+            <h3>Find the subject</h3>
+            <p>The test shows where the student has the best chance to build a serious Olympiad profile.</p>
           </article>
-          <article class="card feature-card" data-symbol="✦">
+          <article class="card feature-card" data-symbol="=">
             <span class="num">02</span>
-            <h3>Complete monthly support</h3>
-            <p>Lessons, weekly tests, homework, tutor review, and parent updates are handled inside one programme.</p>
+            <h3>Build the weekly rhythm</h3>
+            <p>Lessons, tests, homework, tutor correction, and parent updates stay inside one monthly programme.</p>
           </article>
-          <article class="card feature-card" data-symbol="◎">
+          <article class="card feature-card" data-symbol=">">
             <span class="num">03</span>
-            <h3>Medal-oriented culture</h3>
-            <p>The goal is Olympiad thinking: the kind of reasoning that survives real papers and unfamiliar problems.</p>
+            <h3>Turn effort into signal</h3>
+            <p>The goal is visible proof: medals, stronger thinking, and a story universities can quickly understand.</p>
           </article>
         </div>
       </section>
 
       <section class="section band parent-route-section">
-        <div class="split">
+        <div class="route-showcase">
           <div>
             <p class="eyebrow">Simple for parents</p>
             <h2>Register for the test. We handle the route from there.</h2>
+            <p>
+              A strong programme should reduce confusion. The first decision is simple: let the student take the test,
+              then receive a realistic placement recommendation.
+            </p>
           </div>
-          <p>
-            A strong programme should reduce confusion. The first decision is simple: let the student take the test,
-            then receive a realistic placement recommendation.
-          </p>
+          <div class="route-stack" aria-label="WestBridge route">
+            <article><b>Test</b><span>Reasoning style and readiness</span></article>
+            <article><b>Subject</b><span>Student preference plus strongest advantage</span></article>
+            <article><b>Training</b><span>Lessons, homework, weekly testing</span></article>
+            <article><b>Proof</b><span>Competitions, medals, university signal</span></article>
+          </div>
         </div>
         <div class="cards">
           <article class="card dark-card feature-card" data-symbol="∑">
@@ -243,6 +223,6 @@
         </nav>
       </div>
     </footer>
-    <script src="app.js?v=18"></script>
+    <script src="app.js?v=19"></script>
   </body>
 </html>
