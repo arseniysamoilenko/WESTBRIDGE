@@ -6,8 +6,9 @@
   const forms = document.querySelectorAll("[data-lead-form]");
   const orbitRing = document.querySelector("[data-orbit-ring]");
   const orbitButtons = document.querySelectorAll("[data-orbit]");
+  const floatItems = document.querySelectorAll("[data-float]");
   const revealItems = document.querySelectorAll(
-    ".section, .card, .loop-step, .subject-card, .tutor-card, .quote, .stat, .medal-card, .podium-chart, .file-row, .ladder-row, .price-panel, .decision-card"
+    ".section, .card, .loop-step, .subject-card, .tutor-card, .quote, .stat, .medal-card, .podium-chart, .file-row, .file-panel, .file-list, .ladder-row, .price-panel, .decision-card, .method-proof, .university-proof, .study-quote-card"
   );
 
   if (menu && nav) {
@@ -65,6 +66,8 @@
   revealOnScroll();
   window.addEventListener("scroll", revealOnScroll, { passive: true });
   window.addEventListener("resize", revealOnScroll);
+
+  setupFloatMotion();
 
   function countUp(element) {
     const target = Number(element.getAttribute("data-count") || "0");
@@ -125,5 +128,39 @@
         orbitRing.style.setProperty("--orbit-offset", String(offset));
       });
     });
+  }
+
+  function setupFloatMotion() {
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (!floatItems.length || reduceMotion) return;
+
+    let targetScroll = window.scrollY || window.pageYOffset || 0;
+    let easedScroll = targetScroll;
+
+    const updateTarget = () => {
+      targetScroll = window.scrollY || window.pageYOffset || 0;
+    };
+
+    const animate = () => {
+      easedScroll += (targetScroll - easedScroll) * 0.085;
+      const lag = targetScroll - easedScroll;
+
+      floatItems.forEach((item) => {
+        const rect = item.getBoundingClientRect();
+        const depth = Number(item.getAttribute("data-float")) || 1;
+        const center = rect.top + rect.height / 2;
+        const distance = (center - window.innerHeight / 2) / Math.max(window.innerHeight, 1);
+        const drift = Math.max(-34, Math.min(34, -distance * 32 * depth));
+        const inertia = Math.max(-16, Math.min(16, lag * 0.032 * depth));
+
+        item.style.setProperty("--float-y", `${(drift + inertia).toFixed(2)}px`);
+      });
+
+      requestAnimationFrame(animate);
+    };
+
+    window.addEventListener("scroll", updateTarget, { passive: true });
+    window.addEventListener("resize", updateTarget);
+    animate();
   }
 })();

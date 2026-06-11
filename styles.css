@@ -81,18 +81,21 @@ img {
   z-index: 50;
   top: 14px;
   left: 50%;
-  width: min(calc(100% - 28px), var(--max));
+  width: min(calc(100% - 44px), 1120px);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
-  padding: 12px 14px 12px 18px;
+  gap: 16px;
+  padding: 9px 12px 9px 16px;
   color: var(--ink);
-  background: rgba(255, 249, 241, 0.9);
-  border: 1px solid rgba(21, 17, 14, 0.1);
+  background:
+    linear-gradient(135deg, rgba(255, 250, 241, 0.66), rgba(255, 250, 241, 0.44));
+  border: 1px solid rgba(255, 255, 255, 0.58);
   border-radius: 999px;
-  box-shadow: 0 18px 60px rgba(16, 21, 31, 0.08);
-  backdrop-filter: blur(16px);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.58),
+    0 18px 54px rgba(21, 17, 14, 0.12);
+  backdrop-filter: blur(24px) saturate(1.25);
   transform: translateX(-50%);
 }
 
@@ -180,11 +183,18 @@ img {
 .stat,
 .medal-card,
 .file-row,
+.file-panel,
+.file-list,
 .ladder-row,
 .price-panel,
-.decision-card {
+.decision-card,
+.method-proof,
+.university-proof,
+.study-quote-card {
   opacity: 0;
-  transform: translateY(34px) scale(0.985);
+  --reveal-y: 34px;
+  --reveal-scale: 0.985;
+  transform: translate3d(0, calc(var(--reveal-y) + var(--float-y, 0px)), 0) scale(var(--reveal-scale));
   transition:
     opacity 720ms ease,
     transform 720ms cubic-bezier(0.22, 1, 0.36, 1),
@@ -192,6 +202,7 @@ img {
     border-color 220ms ease,
     background 220ms ease;
   transition-delay: var(--reveal-delay, 0ms);
+  will-change: transform, opacity;
 }
 
 .section.is-visible,
@@ -203,11 +214,18 @@ img {
 .stat.is-visible,
 .medal-card.is-visible,
 .file-row.is-visible,
+.file-panel.is-visible,
+.file-list.is-visible,
 .ladder-row.is-visible,
 .price-panel.is-visible,
-.decision-card.is-visible {
+.decision-card.is-visible,
+.method-proof.is-visible,
+.university-proof.is-visible,
+.study-quote-card.is-visible {
   opacity: 1;
-  transform: translateY(0) scale(1);
+  --reveal-y: 0px;
+  --reveal-scale: 1;
+  transform: translate3d(0, calc(var(--reveal-y) + var(--float-y, 0px)), 0) scale(var(--reveal-scale));
 }
 
 .section.tight {
@@ -690,15 +708,18 @@ h3 {
 }
 
 .promise-section .card.is-visible:nth-child(1) {
-  transform: translateY(34px) rotate(-1.2deg);
+  --reveal-y: 34px;
+  rotate: -1.2deg;
 }
 
 .promise-section .card.is-visible:nth-child(2) {
-  transform: translateY(-8px) rotate(0.8deg);
+  --reveal-y: -8px;
+  rotate: 0.8deg;
 }
 
 .promise-section .card.is-visible:nth-child(3) {
-  transform: translateY(30px) rotate(-0.7deg);
+  --reveal-y: 30px;
+  rotate: -0.7deg;
 }
 
 .parent-route-section {
@@ -954,7 +975,7 @@ h3 {
 }
 
 .results-dashboard .stat:nth-child(1) {
-  background: linear-gradient(155deg, rgba(16, 25, 43, 0.96), rgba(38, 27, 20, 0.9));
+  background: linear-gradient(155deg, rgba(58, 34, 17, 0.96), rgba(104, 48, 12, 0.9));
 }
 
 .results-dashboard .stat:nth-child(2) {
@@ -1078,7 +1099,7 @@ h3 {
   place-items: center;
   color: rgba(255, 255, 255, 0.82);
   background:
-    linear-gradient(135deg, rgba(16, 25, 43, 0.86), rgba(191, 87, 0, 0.62)),
+    linear-gradient(135deg, rgba(54, 31, 16, 0.84), rgba(191, 87, 0, 0.58)),
     url("https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=900&q=80");
   background-position: center;
   background-size: cover;
@@ -1342,19 +1363,26 @@ h3 {
 
 .file-panel {
   padding: clamp(28px, 5vw, 46px);
-  color: var(--white);
+  color: var(--ink);
   background:
-    linear-gradient(135deg, rgba(16, 25, 43, 0.96), rgba(16, 25, 43, 0.9)),
+    radial-gradient(circle at 82% 18%, rgba(191, 87, 0, 0.16), transparent 28%),
+    linear-gradient(135deg, rgba(255, 250, 241, 0.94), rgba(247, 231, 211, 0.86)),
     url("https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=1400&q=82");
   background-position: center;
   background-size: cover;
+  background-blend-mode: normal, normal, luminosity;
   border-radius: var(--radius);
-  box-shadow: var(--shadow);
+  border: 1px solid rgba(191, 87, 0, 0.16);
+  box-shadow: 0 24px 80px rgba(21, 17, 14, 0.12);
 }
 
 .file-panel p {
   max-width: 620px;
-  color: rgba(255, 255, 255, 0.72);
+  color: var(--ink-soft);
+}
+
+.file-panel .eyebrow {
+  color: var(--orange-dark);
 }
 
 .file-list {
@@ -1886,6 +1914,65 @@ h3 {
   --podium-bottom: #b96b2d;
   --podium-shadow: rgba(185, 107, 45, 0.32);
   --podium-text: #3d1f0b;
+}
+
+.study-quote-section {
+  padding-top: clamp(30px, 5vw, 72px);
+  padding-bottom: clamp(38px, 7vw, 96px);
+  background:
+    linear-gradient(180deg, rgba(255, 253, 248, 0), rgba(255, 250, 241, 0.82) 22%, rgba(255, 250, 241, 0));
+}
+
+.study-quote-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(280px, 0.82fr) minmax(320px, 0.9fr);
+  gap: clamp(24px, 5vw, 70px);
+  align-items: center;
+  width: min(100%, 1040px);
+  margin-inline: auto;
+  padding: clamp(26px, 5vw, 54px);
+  overflow: hidden;
+  border: 1px solid rgba(21, 17, 14, 0.12);
+  border-radius: calc(var(--radius) + 14px);
+  background:
+    radial-gradient(circle at 12% 20%, rgba(191, 87, 0, 0.12), transparent 30%),
+    linear-gradient(135deg, rgba(255, 250, 241, 0.92), rgba(255, 255, 255, 0.68));
+  box-shadow: 0 28px 90px rgba(21, 17, 14, 0.13);
+  backdrop-filter: blur(14px);
+}
+
+.study-quote-card::before {
+  content: "WORK";
+  position: absolute;
+  right: -0.16em;
+  bottom: -0.2em;
+  color: rgba(21, 17, 14, 0.045);
+  font-family: Fraunces, Georgia, "Times New Roman", serif;
+  font-size: clamp(7rem, 18vw, 17rem);
+  font-weight: 900;
+  line-height: 0.8;
+  pointer-events: none;
+}
+
+.study-quote-card img {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  opacity: 0.9;
+  filter: drop-shadow(0 22px 34px rgba(21, 17, 14, 0.16));
+  mix-blend-mode: multiply;
+}
+
+.study-quote-card blockquote {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  color: var(--ink);
+  font-family: Fraunces, Georgia, "Times New Roman", serif;
+  font-size: clamp(2.35rem, 5.5vw, 5.6rem);
+  font-weight: 700;
+  line-height: 0.95;
 }
 
 .method-proof {
@@ -2449,7 +2536,8 @@ h3 {
   .promise-section .card.is-visible:nth-child(1),
   .promise-section .card.is-visible:nth-child(2),
   .promise-section .card.is-visible:nth-child(3) {
-    transform: translateY(0) rotate(0);
+    --reveal-y: 0px;
+    rotate: 0deg;
   }
 
   .ladder-row {
@@ -2472,7 +2560,8 @@ h3 {
   .stat-strip,
   .universities,
   .university-logo-field,
-  .university-logo-field.compact {
+  .university-logo-field.compact,
+  .study-quote-card {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -2531,8 +2620,17 @@ h3 {
   .universities,
   .university-logo-field,
   .university-logo-field.compact,
-  .medal-grid {
+  .medal-grid,
+  .study-quote-card {
     grid-template-columns: 1fr;
+  }
+
+  .study-quote-card {
+    padding: 24px;
+  }
+
+  .study-quote-card blockquote {
+    font-size: clamp(2.1rem, 12vw, 3.4rem);
   }
 
   .podium-chart {
@@ -2640,11 +2738,20 @@ h3 {
   .stat,
   .medal-card,
   .file-row,
+  .file-panel,
+  .file-list,
   .ladder-row,
   .price-panel,
-  .decision-card {
+  .decision-card,
+  .method-proof,
+  .university-proof,
+  .study-quote-card {
     opacity: 1;
     transform: none;
+  }
+
+  [data-float] {
+    --float-y: 0px !important;
   }
 
 }

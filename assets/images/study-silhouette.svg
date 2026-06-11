@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" role="img" aria-labelledby="title desc">
+  <title id="title">Student studying silhouette</title>
+  <desc id="desc">A monochrome student at a desk writing beside a laptop and papers.</desc>
+  <g fill="#111111">
+    <path d="M128 409h628c21 0 38 17 38 38v12H91v-12c0-21 16-38 37-38Z" opacity=".88"/>
+    <path d="M120 459h650v36H120z" opacity=".98"/>
+    <path d="M170 494h42l-16 48h-42zM682 494h42l16 48h-42z" opacity=".78"/>
+    <path d="M390 201c-18-31-2-73 34-86 44-17 90 18 86 65-3 35-29 63-63 67-23 3-45-7-57-46Z"/>
+    <path d="M339 257c18-38 60-59 103-55l38 4c46 5 82 40 91 85l22 112H335l-14-79c-4-23 2-47 18-67Z" opacity=".92"/>
+    <path d="M477 190c26 7 63 35 73 69 12 40 5 89-20 119l-53-1c20-26 20-74 6-102-8-17-26-32-46-39Z" opacity=".9"/>
+    <path d="M353 312c49 14 91 36 124 66 8 7 8 20 1 28-8 9-21 9-30 2-29-25-64-44-106-56-11-3-18-15-15-27 4-11 15-17 26-13Z"/>
+    <path d="M492 361h107c10 0 18 8 18 18v30H482v-38c0-6 4-10 10-10Z"/>
+    <path d="M180 283h175c13 0 25 9 29 22l33 104H229c-12 0-23-8-27-20l-37-86c-4-10 3-20 15-20Z" opacity=".84"/>
+    <path d="M204 309h126c8 0 15 5 17 13l18 57H235c-8 0-15-5-18-12l-25-44c-4-7 1-14 12-14Z" opacity=".38"/>
+    <path d="M617 346h122c13 0 24 11 24 24v39H617z" opacity=".86"/>
+    <path d="M655 288h112c12 0 22 10 22 22v99H633v-99c0-12 10-22 22-22Z" opacity=".18"/>
+    <path d="M450 221c-39 8-74-10-86-45-8-25 1-52 23-68 2 50 34 81 96 92-9 11-20 18-33 21Z"/>
+  </g>
+  <g fill="none" stroke="#111111" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M630 317h108M631 341h108M631 365h108" opacity=".7" stroke-width="13"/>
+    <path d="M569 359l50-35" opacity=".9" stroke-width="12"/>
+    <path d="M507 401c40-13 76-28 111-48" opacity=".72" stroke-width="16"/>
+    <path d="M260 431h285" opacity=".36" stroke-width="8"/>
+    <path d="M692 252c35-30 73-28 111 4" opacity=".12" stroke-width="32"/>
+  </g>
+</svg>
