@@ -190,7 +190,9 @@ img {
 .decision-card,
 .method-proof,
 .university-proof,
-.study-quote-card {
+.study-quote-card,
+.journey-node,
+.university-name-strip {
   opacity: 0;
   --reveal-y: 34px;
   --reveal-scale: 0.985;
@@ -221,7 +223,9 @@ img {
 .decision-card.is-visible,
 .method-proof.is-visible,
 .university-proof.is-visible,
-.study-quote-card.is-visible {
+.study-quote-card.is-visible,
+.journey-node.is-visible,
+.university-name-strip.is-visible {
   opacity: 1;
   --reveal-y: 0px;
   --reveal-scale: 1;
@@ -326,27 +330,41 @@ img {
   border-color: rgba(16, 21, 31, 0.24);
 }
 
-.hero-stats {
+.university-name-strip {
+  position: relative;
+  overflow: hidden;
+  padding: 26px 0;
+  border-block: 1px solid rgba(21, 17, 14, 0.1);
+  background: rgba(255, 250, 241, 0.72);
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+
+.university-name-track {
   display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 30px;
-}
-
-.hero-stats span {
-  display: inline-flex;
+  width: max-content;
   align-items: center;
-  gap: 7px;
-  padding: 9px 13px;
-  color: var(--ink-soft);
-  border: 1px solid rgba(16, 21, 31, 0.1);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.72);
-  box-shadow: 0 12px 34px rgba(16, 21, 31, 0.06);
+  gap: clamp(26px, 4vw, 52px);
+  animation: universityNames 38s linear infinite;
 }
 
-.hero-stats b {
+.university-name-track span {
+  position: relative;
   color: var(--ink);
+  font-family: Fraunces, Georgia, "Times New Roman", serif;
+  font-size: clamp(1.45rem, 3vw, 2.25rem);
+  font-weight: 650;
+  white-space: nowrap;
+}
+
+.university-name-track span::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: calc(clamp(26px, 4vw, 52px) * -0.55);
+  width: 1px;
+  height: 1.2em;
+  background: rgba(21, 17, 14, 0.12);
+  transform: translateY(-50%);
 }
 
 .eyebrow {
@@ -1006,6 +1024,165 @@ h3 {
   border-radius: 50%;
 }
 
+.education-path-section {
+  overflow: hidden;
+  padding-bottom: clamp(86px, 11vw, 150px);
+}
+
+.path-heading {
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.path-heading h2 {
+  max-width: 1180px;
+}
+
+.path-link {
+  display: inline-flex;
+  margin-top: 24px;
+  color: var(--gold);
+  font-family: Fraunces, Georgia, "Times New Roman", serif;
+  font-size: clamp(1.1rem, 1.8vw, 1.45rem);
+  font-weight: 650;
+}
+
+.journey-map {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(130px, 0.7fr) minmax(150px, 0.92fr) minmax(270px, 1.72fr) minmax(150px, 0.92fr) minmax(150px, 0.92fr);
+  gap: clamp(20px, 3vw, 44px);
+  align-items: center;
+  max-width: 1300px;
+  margin: clamp(76px, 10vw, 118px) auto 0;
+}
+
+.journey-map::before {
+  content: "";
+  position: absolute;
+  left: 8%;
+  right: 7%;
+  top: 50%;
+  z-index: -1;
+  height: 3px;
+  background: var(--ink);
+  transform: translateY(-50%);
+}
+
+.journey-node {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 154px;
+  padding: 22px;
+  text-align: center;
+  background: rgba(255, 250, 241, 0.84);
+  border: 3px solid var(--ink);
+  box-shadow: 0 18px 50px rgba(21, 17, 14, 0.06);
+}
+
+.journey-node.circle {
+  aspect-ratio: 1;
+  border-radius: 50%;
+}
+
+.journey-node.pill {
+  min-height: 138px;
+  border-radius: 999px;
+}
+
+.journey-node span {
+  position: absolute;
+  top: -34px;
+  color: var(--gold);
+  font-weight: 850;
+}
+
+.journey-node h3 {
+  max-width: 190px;
+  margin: 0;
+  font-family: Fraunces, Georgia, "Times New Roman", serif;
+  font-size: clamp(1.15rem, 1.6vw, 1.45rem);
+  line-height: 1.18;
+}
+
+.journey-node p {
+  position: absolute;
+  top: calc(100% + 14px);
+  left: 50%;
+  width: min(260px, 150%);
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+  line-height: 1.35;
+  transform: translateX(-50%);
+}
+
+.path-callout {
+  position: absolute;
+  left: 0;
+  top: -46px;
+  color: var(--gold);
+  font-family: Fraunces, Georgia, "Times New Roman", serif;
+  font-weight: 650;
+}
+
+.path-callout i,
+.structure-arrow::after {
+  display: block;
+  width: 84px;
+  height: 54px;
+  border-left: 4px solid var(--ink);
+  border-bottom: 4px solid var(--ink);
+  border-radius: 0 0 0 80px;
+  transform: rotate(-35deg);
+  content: "";
+}
+
+.path-callout i::after,
+.structure-arrow::before {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-right: 5px solid var(--ink);
+  border-bottom: 5px solid var(--ink);
+}
+
+.path-callout i {
+  position: relative;
+  margin: 8px 0 0 38px;
+}
+
+.path-callout i::after {
+  right: -8px;
+  bottom: -9px;
+  transform: rotate(6deg);
+}
+
+.structure-arrow {
+  position: absolute;
+  left: 50%;
+  bottom: -78px;
+  color: var(--gold);
+  font-family: Fraunces, Georgia, "Times New Roman", serif;
+  font-weight: 650;
+  transform: translateX(-50%);
+}
+
+.structure-arrow::after {
+  width: 110px;
+  height: 62px;
+  margin: 8px auto 0;
+  transform: rotate(42deg);
+}
+
+.structure-arrow::before {
+  right: 28px;
+  bottom: -72px;
+  transform: rotate(84deg);
+}
+
 .course-loop {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -1241,6 +1418,8 @@ h3 {
   justify-items: end;
   gap: 14px;
   margin-top: 44px;
+  width: min(100%, 1220px);
+  margin-left: auto;
 }
 
 .ladder-section {
@@ -1292,7 +1471,7 @@ h3 {
 
 .ladder-row {
   display: grid;
-  grid-template-columns: 190px 1fr 150px;
+  grid-template-columns: minmax(180px, 0.3fr) minmax(320px, 1fr) 128px;
   gap: 18px;
   align-items: center;
   width: var(--ladder-width, 100%);
@@ -1305,23 +1484,23 @@ h3 {
 }
 
 .ladder-row:nth-child(1) {
-  --ladder-width: 58%;
+  --ladder-width: 72%;
 }
 
 .ladder-row:nth-child(2) {
-  --ladder-width: 66%;
+  --ladder-width: 77%;
 }
 
 .ladder-row:nth-child(3) {
-  --ladder-width: 74%;
-}
-
-.ladder-row:nth-child(4) {
   --ladder-width: 82%;
 }
 
+.ladder-row:nth-child(4) {
+  --ladder-width: 88%;
+}
+
 .ladder-row:nth-child(5) {
-  --ladder-width: 91%;
+  --ladder-width: 94%;
 }
 
 .ladder-row:nth-child(6) {
@@ -1351,6 +1530,20 @@ h3 {
 .ladder-row strong:last-child {
   color: var(--orange);
   text-align: right;
+}
+
+@supports (animation-timeline: view()) {
+  .ladder-row {
+    --ladder-side: -68vw;
+    opacity: 0;
+    animation: ladderSideMove both linear;
+    animation-timeline: view(block);
+    animation-range: entry -6% exit 106%;
+  }
+
+  .ladder-row:nth-child(even) {
+    --ladder-side: 68vw;
+  }
 }
 
 .admissions-file {
@@ -1785,9 +1978,9 @@ h3 {
   display: grid;
   grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.08fr) minmax(0, 0.9fr);
   gap: clamp(10px, 2.2vw, 26px);
-  align-items: end;
+  align-items: stretch;
   margin-top: 54px;
-  min-height: clamp(260px, 30vw, 380px);
+  min-height: auto;
   padding: clamp(18px, 3vw, 30px) clamp(12px, 2.4vw, 26px) clamp(16px, 2.4vw, 24px);
   overflow: hidden;
   border: 1px solid rgba(16, 21, 31, 0.12);
@@ -1813,7 +2006,7 @@ h3 {
 .podium-chart::before {
   content: "";
   position: absolute;
-  inset: 12% 8% 18%;
+  inset: 14% 8%;
   border: 1px solid rgba(16, 21, 31, 0.08);
   border-radius: 50%;
   pointer-events: none;
@@ -1823,14 +2016,20 @@ h3 {
   position: relative;
   z-index: 1;
   display: grid;
-  align-items: end;
-  gap: 16px;
+  align-content: center;
+  gap: 18px;
   height: 100%;
-  min-height: 210px;
+  min-height: clamp(210px, 22vw, 300px);
+  padding: clamp(20px, 3vw, 34px);
+  border: 1px solid rgba(21, 17, 14, 0.1);
+  border-radius: calc(var(--radius) + 14px);
+  background:
+    radial-gradient(circle at 50% 10%, rgba(255, 255, 255, 0.7), transparent 38%),
+    linear-gradient(180deg, rgba(255, 250, 241, 0.86), rgba(255, 255, 255, 0.52));
+  box-shadow: 0 18px 55px rgba(21, 17, 14, 0.08);
 }
 
 .podium-value {
-  align-self: end;
   color: var(--ink);
   text-align: center;
   font-family: Fraunces, Georgia, "Times New Roman", serif;
@@ -1847,37 +2046,31 @@ h3 {
 .podium-block {
   position: relative;
   display: grid;
+  gap: 8px;
   place-items: center;
   overflow: hidden;
-  min-height: var(--podium-height);
-  padding: 18px 10px;
+  min-height: auto;
+  padding: 0;
   color: var(--podium-text);
-  border: 1px solid rgba(255, 255, 255, 0.46);
-  border-radius: 16px 16px 8px 8px;
-  background:
-    linear-gradient(155deg, rgba(255, 255, 255, 0.48), transparent 34%),
-    linear-gradient(180deg, var(--podium-top), var(--podium-bottom));
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.5),
-    0 24px 60px var(--podium-shadow);
-  transform: scaleY(0.08);
-  transform-origin: bottom;
-  transition: transform 1100ms cubic-bezier(0.18, 1, 0.22, 1);
+  border: 0;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+  transform: translateY(14px);
+  opacity: 0;
+  transition:
+    opacity 900ms ease,
+    transform 900ms cubic-bezier(0.18, 1, 0.22, 1);
 }
 
 .podium-block::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(90deg, transparent, rgba(255,255,255,0.22), transparent),
-    repeating-linear-gradient(90deg, rgba(255,255,255,0.08) 0 1px, transparent 1px 18px);
-  opacity: 0.65;
+  display: none;
 }
 
 .podium-chart.is-visible .podium-block,
 .photo-wall.is-visible .podium-block {
-  transform: scaleY(1);
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .podium-block strong {
@@ -1890,6 +2083,13 @@ h3 {
   font-size: clamp(1rem, 1.9vw, 1.55rem);
   text-transform: uppercase;
   letter-spacing: 0.1em;
+}
+
+.podium-medals {
+  font-size: clamp(2.4rem, 5vw, 4.25rem);
+  line-height: 1;
+  letter-spacing: -0.12em;
+  filter: drop-shadow(0 14px 18px var(--podium-shadow));
 }
 
 .podium-silver {
@@ -2367,6 +2567,34 @@ h3 {
   }
 }
 
+@keyframes universityNames {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes ladderSideMove {
+  0% {
+    opacity: 0;
+    transform: translate3d(var(--ladder-side), 26px, 0) scale(0.98);
+  }
+  22% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  76% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(var(--ladder-side), -18px, 0) scale(0.98);
+  }
+}
+
 @keyframes barFill {
   from {
     transform: scaleX(0);
@@ -2518,6 +2746,7 @@ h3 {
   .form-shell,
   .admissions-file,
   .podium-showcase,
+  .journey-map,
   .why-proof-intro,
   .ladder-intro,
   .thinking-section {
@@ -2542,6 +2771,48 @@ h3 {
 
   .ladder-row {
     margin-left: 0 !important;
+  }
+
+  .journey-map {
+    max-width: 620px;
+    gap: 34px;
+    margin-top: 64px;
+  }
+
+  .journey-map::before {
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    right: auto;
+    width: 3px;
+    height: auto;
+    transform: translateX(-50%);
+  }
+
+  .journey-node.circle,
+  .journey-node.pill {
+    width: min(280px, 74vw);
+    min-height: 150px;
+    justify-self: center;
+    border-radius: 28px;
+    aspect-ratio: auto;
+  }
+
+  .journey-node p {
+    position: static;
+    width: auto;
+    margin-top: 10px;
+    transform: none;
+  }
+
+  .journey-node span {
+    position: static;
+    margin-bottom: 8px;
+  }
+
+  .path-callout,
+  .structure-arrow {
+    display: none;
   }
 
   .thinking-section .quote,
@@ -2643,7 +2914,7 @@ h3 {
   }
 
   .podium-block {
-    min-height: 150px;
+    min-height: auto;
   }
 
   .university-logo-field img {
@@ -2737,6 +3008,8 @@ h3 {
   .quote,
   .stat,
   .medal-card,
+  .journey-node,
+  .university-name-strip,
   .file-row,
   .file-panel,
   .file-list,
@@ -2752,6 +3025,19 @@ h3 {
 
   [data-float] {
     --float-y: 0px !important;
+  }
+
+  .university-name-track {
+    animation: none;
+    transform: none;
+  }
+
+  @supports (animation-timeline: view()) {
+    .ladder-row {
+      animation: none;
+      opacity: 1;
+      transform: none;
+    }
   }
 
 }
