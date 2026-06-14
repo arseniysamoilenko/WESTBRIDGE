@@ -8,7 +8,7 @@
   const orbitButtons = document.querySelectorAll("[data-orbit]");
   const floatItems = document.querySelectorAll("[data-float]");
   const revealItems = document.querySelectorAll(
-    ".section, .card, .loop-step, .subject-card, .tutor-card, .quote, .stat, .medal-card, .podium-chart, .file-row, .file-panel, .file-list, .ladder-row, .price-panel, .decision-card, .method-proof, .university-proof, .study-quote-card, .journey-node, .university-name-strip"
+    ".section, .card, .loop-step, .subject-card, .tutor-card, .quote, .stat, .medal-card, .podium-chart, .results-orbit, .result-channel, .file-row, .file-panel, .file-list, .ladder-row, .price-panel, .decision-card, .method-proof, .university-proof, .study-quote-card, .study-quote-band, .journey-node, .university-name-strip"
   );
 
   if (menu && nav) {
