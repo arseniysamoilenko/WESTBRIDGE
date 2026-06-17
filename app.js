@@ -7,7 +7,7 @@
   const orbitRing = document.querySelector("[data-orbit-ring]");
   const orbitButtons = document.querySelectorAll("[data-orbit]");
   const revealItems = document.querySelectorAll(
-    ".section, .card, .loop-step, .subject-card, .tutor-card, .quote, .stat, .medal-card, .podium-chart, .results-orbit, .result-channel, .file-row, .file-panel, .file-list, .signal-card, .signal-core, .price-panel, .decision-card, .method-proof, .university-proof, .study-quote-card, .study-quote-band, .journey-node, .university-name-strip"
+    ".section, .card, .loop-step, .subject-card, .tutor-card, .quote, .stat, .medal-card, .podium-chart, .results-orbit, .result-channel, .file-row, .file-panel, .file-list, .proof-columns, .stair-step, .price-panel, .decision-card, .method-proof, .university-proof, .study-quote-card, .study-quote-band, .journey-node, .university-name-strip"
   );
 
   if (menu && nav) {
@@ -25,11 +25,10 @@
   }
 
   const observer = new IntersectionObserver(
-    (entries, obs) => {
+    (entries) => {
       entries.forEach((entry) => {
         if (!entry.isIntersecting) return;
         countUp(entry.target);
-        obs.unobserve(entry.target);
       });
     },
     { threshold: 0.45 }
@@ -42,10 +41,15 @@
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add("is-visible");
+        } else if (
+          entry.boundingClientRect.bottom < -90 ||
+          entry.boundingClientRect.top > window.innerHeight + 90
+        ) {
+          entry.target.classList.remove("is-visible");
         }
       });
     },
-    { threshold: 0.14, rootMargin: "0px 0px -8% 0px" }
+    { threshold: 0.12, rootMargin: "0px 0px 0px 0px" }
   );
 
   revealItems.forEach((item, index) => {
@@ -56,8 +60,10 @@
   function revealOnScroll() {
     revealItems.forEach((item) => {
       const rect = item.getBoundingClientRect();
-      if (rect.top < window.innerHeight * 0.88 && rect.bottom > 0) {
+      if (rect.top < window.innerHeight * 0.9 && rect.bottom > window.innerHeight * 0.04) {
         item.classList.add("is-visible");
+      } else if (rect.bottom < -90 || rect.top > window.innerHeight + 90) {
+        item.classList.remove("is-visible");
       }
     });
   }
