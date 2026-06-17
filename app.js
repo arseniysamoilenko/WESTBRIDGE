@@ -7,7 +7,7 @@
   const orbitRing = document.querySelector("[data-orbit-ring]");
   const orbitButtons = document.querySelectorAll("[data-orbit]");
   const revealItems = document.querySelectorAll(
-    ".section, .card, .loop-step, .subject-card, .tutor-card, .quote, .stat, .medal-card, .podium-chart, .results-orbit, .result-channel, .file-row, .file-panel, .file-list, .proof-columns, .stair-step, .price-panel, .decision-card, .method-proof, .university-proof, .study-quote-card, .study-quote-band, .journey-node, .university-name-strip"
+    ".section, .card, .loop-step, .subject-card, .brain-lab, .brain-sector, .brain-core, .tutor-card, .quote, .stat, .medal-card, .podium-chart, .results-orbit, .result-channel, .file-row, .file-panel, .file-list, .proof-columns, .stair-step, .price-panel, .decision-card, .method-proof, .university-proof, .study-quote-card, .study-quote-band, .journey-node, .university-name-strip"
   );
 
   if (menu && nav) {
