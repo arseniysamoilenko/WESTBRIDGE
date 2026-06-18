@@ -3992,3 +3992,472 @@ h3 {
     transform: none;
   }
 }
+
+/* Subject selector refinement: full field sectors, real icons, no brain badge. */
+.brain-lab {
+  min-height: clamp(620px, 58vw, 790px);
+  background:
+    radial-gradient(circle at 50% 50%, rgba(249, 92, 2, 0.08), transparent 32%),
+    linear-gradient(135deg, rgba(255, 250, 241, 0.98), rgba(249, 239, 222, 0.92));
+}
+
+.brain-sector {
+  overflow: hidden;
+}
+
+.brain-sector::before {
+  background:
+    radial-gradient(circle at var(--glow-x, 50%) var(--glow-y, 50%), var(--sector-bg), transparent 34%),
+    linear-gradient(135deg, color-mix(in srgb, var(--sector-bg), white 32%), rgba(255, 250, 241, 0.18));
+  opacity: 0;
+}
+
+.brain-sector:hover::before,
+.brain-sector:focus-visible::before {
+  opacity: 0.94;
+}
+
+.brain-sector::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border: 1px solid rgba(21, 17, 14, 0.055);
+}
+
+.brain-sector b {
+  top: calc(var(--label-y) + 62px);
+  z-index: 3;
+}
+
+.brain-sector p {
+  top: calc(var(--label-y) + 112px);
+  z-index: 3;
+}
+
+.sector-symbol {
+  display: block;
+  width: clamp(78px, 9vw, 126px);
+  height: clamp(78px, 9vw, 126px);
+  z-index: 3;
+  font-size: 0;
+  border-radius: 28px;
+  background: rgba(255, 250, 241, 0.48);
+  box-shadow:
+    inset 0 0 0 1px rgba(21, 17, 14, 0.09),
+    0 16px 44px rgba(21, 17, 14, 0.08);
+  backdrop-filter: blur(6px);
+}
+
+.sector-symbol::before,
+.sector-symbol::after {
+  content: "";
+  position: absolute;
+}
+
+.brain-math {
+  --sector-ink: #bf5700;
+  --sector-bg: rgba(191, 87, 0, 0.2);
+  --label-x: 50%;
+  --label-y: 13%;
+  --glow-x: 50%;
+  --glow-y: 12%;
+  clip-path: polygon(0 0, 100% 0, 70% 39%, 50% 50%, 30% 39%);
+}
+
+.brain-physics {
+  --sector-ink: #2f6fbd;
+  --sector-bg: rgba(47, 111, 189, 0.22);
+  --label-x: 82%;
+  --label-y: 32%;
+  --glow-x: 88%;
+  --glow-y: 23%;
+  clip-path: polygon(100% 0, 100% 50%, 68% 50%, 50% 50%, 70% 39%);
+}
+
+.brain-chemistry {
+  --sector-ink: #0f766e;
+  --sector-bg: rgba(15, 118, 110, 0.2);
+  --label-x: 82%;
+  --label-y: 69%;
+  --glow-x: 88%;
+  --glow-y: 76%;
+  clip-path: polygon(100% 50%, 100% 100%, 50% 100%, 50% 50%, 68% 50%);
+}
+
+.brain-biology {
+  --sector-ink: #3d9140;
+  --sector-bg: rgba(61, 145, 64, 0.21);
+  --label-x: 50%;
+  --label-y: 85%;
+  --glow-x: 50%;
+  --glow-y: 92%;
+  clip-path: polygon(0 100%, 100% 100%, 68% 61%, 50% 50%, 32% 61%);
+}
+
+.brain-info {
+  --sector-ink: #6247aa;
+  --sector-bg: rgba(98, 71, 170, 0.19);
+  --label-x: 18%;
+  --label-y: 69%;
+  --glow-x: 11%;
+  --glow-y: 76%;
+  clip-path: polygon(0 50%, 32% 50%, 50% 50%, 32% 61%, 0 100%);
+}
+
+.brain-geography {
+  --sector-ink: #b36b12;
+  --sector-bg: rgba(179, 107, 18, 0.2);
+  --label-x: 18%;
+  --label-y: 32%;
+  --glow-x: 11%;
+  --glow-y: 23%;
+  clip-path: polygon(0 0, 30% 39%, 50% 50%, 32% 50%, 0 50%);
+}
+
+.brain-core {
+  width: clamp(260px, 30vw, 430px);
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent !important;
+  box-shadow: none !important;
+  pointer-events: none;
+}
+
+.brain-core strong,
+.brain-shape {
+  display: none;
+}
+
+.brain-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+  filter: drop-shadow(0 26px 34px rgba(21, 17, 14, 0.18));
+}
+
+.brain-left,
+.brain-right {
+  fill: #f0a36f;
+  stroke: rgba(110, 55, 30, 0.72);
+  stroke-width: 3;
+}
+
+.brain-right {
+  fill: #e8895b;
+}
+
+.brain-cleft {
+  fill: none;
+  stroke: rgba(89, 43, 25, 0.72);
+  stroke-linecap: round;
+  stroke-width: 5;
+}
+
+.brain-line {
+  fill: none;
+  stroke: rgba(255, 239, 218, 0.82);
+  stroke-linecap: round;
+  stroke-width: 4;
+}
+
+.brain-line.soft {
+  stroke: rgba(124, 61, 34, 0.42);
+  stroke-width: 3;
+}
+
+.brain-sector:hover ~ .brain-core,
+.brain-sector:focus-visible ~ .brain-core {
+  transform: translate(-50%, -50%);
+}
+
+.brain-sector:hover ~ .brain-core .brain-shape::before,
+.brain-sector:hover ~ .brain-core .brain-shape::after,
+.brain-sector:focus-visible ~ .brain-core .brain-shape::before,
+.brain-sector:focus-visible ~ .brain-core .brain-shape::after {
+  background: none;
+}
+
+.brain-math .sector-symbol::before {
+  left: 18%;
+  top: 47%;
+  width: 64%;
+  height: 8px;
+  border-radius: 99px;
+  background: var(--sector-ink);
+  box-shadow: 0 -22px 0 var(--sector-ink), 0 22px 0 var(--sector-ink);
+}
+
+.brain-math .sector-symbol::after {
+  left: 47%;
+  top: 17%;
+  width: 8px;
+  height: 36%;
+  border-radius: 99px;
+  background: var(--sector-ink);
+}
+
+.brain-physics .sector-symbol::before {
+  left: 50%;
+  top: 50%;
+  width: 18%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--sector-ink);
+  box-shadow: 0 0 0 9px rgba(47, 111, 189, 0.16);
+  transform: translate(-50%, -50%);
+}
+
+.brain-physics .sector-symbol::after {
+  left: 16%;
+  top: 25%;
+  width: 68%;
+  height: 50%;
+  border: 4px solid var(--sector-ink);
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 0 var(--sector-ink),
+    0 0 0 0 var(--sector-ink);
+  transform: rotate(0deg);
+}
+
+.brain-physics .sector-symbol i,
+.brain-geography .sector-symbol i,
+.brain-biology .sector-symbol i,
+.brain-chemistry .sector-symbol i,
+.brain-info .sector-symbol i {
+  display: block;
+}
+
+.brain-physics .sector-symbol {
+  background:
+    linear-gradient(45deg, transparent 46%, var(--sector-ink) 47% 53%, transparent 54%),
+    linear-gradient(-45deg, transparent 46%, var(--sector-ink) 47% 53%, transparent 54%),
+    rgba(255, 250, 241, 0.48);
+}
+
+.brain-chemistry .sector-symbol::before {
+  left: 18%;
+  top: 32%;
+  width: 24%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--sector-ink);
+  box-shadow:
+    42px 28px 0 color-mix(in srgb, var(--sector-ink), white 12%),
+    78px -4px 0 color-mix(in srgb, var(--sector-ink), white 24%);
+}
+
+.brain-chemistry .sector-symbol::after {
+  left: 34%;
+  top: 45%;
+  width: 56%;
+  height: 4px;
+  border-radius: 99px;
+  background: var(--sector-ink);
+  box-shadow: 26px -20px 0 -1px var(--sector-ink);
+  transform: rotate(28deg);
+}
+
+.brain-biology .sector-symbol {
+  background:
+    radial-gradient(circle at 35% 22%, var(--sector-ink) 0 4px, transparent 5px),
+    radial-gradient(circle at 65% 22%, var(--sector-ink) 0 4px, transparent 5px),
+    radial-gradient(circle at 35% 42%, var(--sector-ink) 0 4px, transparent 5px),
+    radial-gradient(circle at 65% 42%, var(--sector-ink) 0 4px, transparent 5px),
+    radial-gradient(circle at 35% 62%, var(--sector-ink) 0 4px, transparent 5px),
+    radial-gradient(circle at 65% 62%, var(--sector-ink) 0 4px, transparent 5px),
+    radial-gradient(circle at 35% 82%, var(--sector-ink) 0 4px, transparent 5px),
+    radial-gradient(circle at 65% 82%, var(--sector-ink) 0 4px, transparent 5px),
+    rgba(255, 250, 241, 0.48);
+}
+
+.brain-biology .sector-symbol::before,
+.brain-biology .sector-symbol::after {
+  top: 14%;
+  width: 46%;
+  height: 74%;
+  border: 4px solid var(--sector-ink);
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+}
+
+.brain-biology .sector-symbol::before {
+  left: 22%;
+  transform: rotate(18deg);
+}
+
+.brain-biology .sector-symbol::after {
+  right: 22%;
+  transform: rotate(-18deg);
+}
+
+.brain-info .sector-symbol {
+  border-radius: 16px;
+  background:
+    linear-gradient(var(--sector-ink), var(--sector-ink)) 18% 34% / 18px 4px no-repeat,
+    linear-gradient(var(--sector-ink), var(--sector-ink)) 28% 44% / 28px 4px no-repeat,
+    linear-gradient(var(--sector-ink), var(--sector-ink)) 52% 56% / 34px 4px no-repeat,
+    linear-gradient(var(--sector-ink), var(--sector-ink)) 22% 70% / 54px 4px no-repeat,
+    rgba(255, 250, 241, 0.48);
+}
+
+.brain-info .sector-symbol::before {
+  left: 16%;
+  top: 19%;
+  width: 68%;
+  height: 62%;
+  border: 4px solid var(--sector-ink);
+  border-radius: 12px;
+}
+
+.brain-info .sector-symbol::after {
+  left: 20%;
+  top: 20%;
+  width: 60%;
+  height: 13px;
+  border-radius: 8px 8px 0 0;
+  background: var(--sector-ink);
+}
+
+.brain-geography .sector-symbol {
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 38% 36%, rgba(255, 250, 241, 0.95) 0 10px, transparent 11px),
+    radial-gradient(circle at 62% 62%, rgba(255, 250, 241, 0.95) 0 13px, transparent 14px),
+    var(--sector-ink);
+}
+
+.brain-geography .sector-symbol::before {
+  inset: 14%;
+  border: 4px solid rgba(255, 250, 241, 0.92);
+  border-left-color: transparent;
+  border-right-color: transparent;
+  border-radius: 50%;
+}
+
+.brain-geography .sector-symbol::after {
+  left: 12%;
+  top: 48%;
+  width: 76%;
+  height: 4px;
+  border-radius: 99px;
+  background: rgba(255, 250, 241, 0.92);
+  box-shadow: 0 -22px 0 rgba(255, 250, 241, 0.52), 0 22px 0 rgba(255, 250, 241, 0.52);
+}
+
+@media (min-width: 481px) and (max-width: 700px) {
+  .brain-lab {
+    min-height: 720px;
+  }
+
+  .brain-sector b {
+    top: calc(var(--label-y) + 46px);
+    font-size: 1.15rem;
+  }
+
+  .sector-symbol {
+    width: 66px;
+    height: 66px;
+  }
+
+  .brain-core {
+    width: 210px;
+  }
+
+  .brain-physics,
+  .brain-chemistry {
+    --label-x: 80%;
+  }
+
+  .brain-info,
+  .brain-geography {
+    --label-x: 20%;
+  }
+}
+
+@media (max-width: 480px) {
+  .brain-lab {
+    display: grid;
+    min-height: auto;
+    gap: 10px;
+    padding: 18px;
+    overflow: visible;
+  }
+
+  .brain-sector,
+  .brain-math,
+  .brain-physics,
+  .brain-chemistry,
+  .brain-biology,
+  .brain-info,
+  .brain-geography {
+    position: relative;
+    inset: auto;
+    display: grid;
+    grid-template-columns: 74px minmax(0, 1fr);
+    min-height: 112px;
+    align-content: center;
+    align-items: center;
+    justify-items: start;
+    gap: 14px;
+    padding: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(16, 21, 31, 0.1);
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.58);
+    clip-path: none !important;
+  }
+
+  .brain-sector::before {
+    opacity: 0.48;
+  }
+
+  .sector-symbol {
+    position: relative;
+    left: auto;
+    top: auto;
+    width: 64px;
+    height: 64px;
+    grid-row: 1 / span 2;
+    transform: none;
+  }
+
+  .brain-sector b,
+  .brain-sector p {
+    position: static;
+    width: auto;
+    text-align: left;
+    transform: none;
+  }
+
+  .brain-sector b {
+    margin: 0;
+    font-size: 1.25rem;
+  }
+
+  .brain-sector p {
+    display: block;
+    margin: 4px 0 0;
+    font-size: 0.85rem;
+  }
+
+  .brain-core {
+    position: relative;
+    left: auto;
+    top: auto;
+    width: min(100%, 250px);
+    justify-self: center;
+    order: -1;
+    margin-bottom: 10px;
+    transform: none;
+  }
+
+  .brain-sector:hover ~ .brain-core,
+  .brain-sector:focus-visible ~ .brain-core {
+    transform: none;
+  }
+}
