@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Education and Tutors | WestBridge Olympiad Academy</title>
     <meta name="description" content="WestBridge Olympiad Academy course structure, weekly lessons, tests, homework, tutor review, and mentor model.">
-    <link rel="stylesheet" href="styles.css?v=29">
+    <link rel="stylesheet" href="styles.css?v=32">
   </head>
   <body>
     <header class="site-header">
       <a class="logo" href="index.html" aria-label="WestBridge Olympiad Academy home">
-        <img src="https://www.youngcfoweekend.com/lovable-uploads/69105732-5144-4ab6-b58d-0c80ccc18c07.png" alt="WestBridge">
+        <img src="assets/images/logos/logowestbridge.png" onerror="this.onerror=null;this.src='https://www.youngcfoweekend.com/lovable-uploads/69105732-5144-4ab6-b58d-0c80ccc18c07.png';" alt="WestBridge">
         <span>WestBridge</span>
       </a>
       <button class="menu-button" type="button" data-menu aria-label="Open navigation" aria-expanded="false"><span></span><span></span></button>
@@ -69,7 +69,13 @@
             <span>03</span>
             <h3>Preparation</h3>
             <p>Weekly coaching - problem sets - mock olympiads - mentorship</p>
-            <a class="structure-arrow" href="#structure" aria-label="Jump to course structure"><span>Course structure</span></a>
+            <a class="structure-arrow" href="#structure" aria-label="Jump to course structure">
+              <svg class="drawn-arrow" viewBox="0 0 80 96" aria-hidden="true">
+                <path class="drawn-arrow-line" d="M39 5 C32 23 45 39 38 56 C35 64 34 72 40 82" />
+                <path class="drawn-arrow-head" d="M27 72 L40 84 L53 72" />
+              </svg>
+              <span>Course structure</span>
+            </a>
           </article>
           <article class="journey-node circle">
             <span>04</span>
@@ -173,7 +179,7 @@
             We look for the strongest strategic fit for the student.
           </p>
         </div>
-        <div class="brain-lab" aria-label="Olympiad subject selector">
+        <div class="brain-lab brain-lab-saved" aria-label="Olympiad subject selector saved for later" hidden>
           <article class="brain-sector brain-math" tabindex="0">
             <span class="sector-symbol">+-=</span>
             <b>Mathematics</b>
@@ -215,7 +221,7 @@
             </svg>
           </div>
         </div>
-        <div class="subject-grid subject-grid-legacy" hidden>
+        <div class="subject-grid">
           <article class="subject-card subject-math" data-symbol="∑">
             <span class="num">M</span>
             <h3>Mathematics</h3>
@@ -261,27 +267,27 @@
         </div>
         <div class="tutor-grid">
           <article class="tutor-card">
-            <img class="tutor-avatar" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=420&q=80&fit=crop&crop=faces" alt="Mathematics tutor portrait">
+            <img class="tutor-avatar" src="assets/images/tutors/Fettulah.jpg" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=640&q=80&fit=crop&crop=faces';" alt="Fettulah, mathematics coach">
             <div>
-              <h3>Mathematics Lead Tutor</h3>
-              <p class="muted">Specialist in proof writing, geometry, combinatorics, and national-stage training.</p>
-              <blockquote class="tutor-quote">"Most students wait for talent. We train the habit that beats talent by the end of the year."</blockquote>
+              <h3>Fettulah</h3>
+              <p class="muted">Math coach. IMO gold medalist and HKUST Computer Science alumnus.</p>
+              <blockquote class="tutor-quote">"After HKUST, I started seeing mathematics everywhere. Olympiad training gives students a broader way to read the world."</blockquote>
             </div>
           </article>
           <article class="tutor-card">
-            <img class="tutor-avatar" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=420&q=80&fit=crop&crop=faces" alt="Science Olympiad tutor portrait">
+            <img class="tutor-avatar" src="assets/images/tutors/arseniyyyyyyyyyy.png" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=640&q=80&fit=crop&crop=faces';" alt="Arseniy, physics coach">
             <div>
-              <h3>Science Olympiad Mentor</h3>
-              <p class="muted">Coaches physics, chemistry, or biology students through conceptual depth and timed tests.</p>
-              <blockquote class="tutor-quote">"You can teach a physicist finance faster than you can teach a financier physics. Deep thinking travels."</blockquote>
+              <h3>Arseniy</h3>
+              <p class="muted">Physics coach. Winner of IJSO, Balkan Physics Olympiad, Tuymaada Physics Olympiad, Zhautykov Olympiad, and Kazakhstan Republic Physics Olympiad. Teaching physics for 6 years.</p>
+              <blockquote class="tutor-quote">"Physics rewards students who are willing to stay with a problem after the obvious method fails."</blockquote>
             </div>
           </article>
           <article class="tutor-card">
-            <img class="tutor-avatar" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=420&q=80&fit=crop&crop=faces" alt="Informatics tutor portrait">
+            <img class="tutor-avatar" src="assets/images/tutors/ahmed.jpg" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=640&q=80&fit=crop&crop=faces';" alt="Ahmed, informatics coach">
             <div>
-              <h3>Informatics Coach</h3>
-              <p class="muted">Focuses on algorithms, clean implementations, contest debugging, and complexity analysis.</p>
-              <blockquote class="tutor-quote">"With a tutor and a weekly testing rhythm, consistency starts to feel like an unfair advantage."</blockquote>
+              <h3>Ahmed</h3>
+              <p class="muted">Informatics coach at HKU on full scholarship. IOI bronze medalist, ICPC regional medalist, and 2x Kazakhstan National Olympiad gold medalist.</p>
+              <blockquote class="tutor-quote">"CS is no longer optional. Students who learn algorithms early understand the world before everyone else catches up."</blockquote>
             </div>
           </article>
         </div>
@@ -291,7 +297,7 @@
     <footer class="site-footer">
       <div class="footer-grid">
         <div>
-          <img src="https://www.youngcfoweekend.com/lovable-uploads/69105732-5144-4ab6-b58d-0c80ccc18c07.png" alt="WestBridge">
+          <img src="assets/images/logos/logowestbridge.png" onerror="this.onerror=null;this.src='https://www.youngcfoweekend.com/lovable-uploads/69105732-5144-4ab6-b58d-0c80ccc18c07.png';" alt="WestBridge">
           <p class="tiny">Lessons, tests, homework, tutors, and parent reports in one monthly system.</p>
         </div>
         <nav aria-label="Footer navigation">
@@ -300,8 +306,14 @@
           <a href="results.html">Results</a>
           <a href="apply.html">Apply</a>
         </nav>
+        <div class="footer-contact" aria-label="Contact information">
+          <a href="https://wa.me/message/ABMUZYYPNTEVI1">WhatsApp</a>
+          <a href="mailto:westbridgehk@gmail.com">westbridgehk@gmail.com</a>
+          <a href="tel:+85270520288">(+852) 70520288</a>
+          <a href="https://www.instagram.com/westbridge.hk/">Instagram</a>
+        </div>
       </div>
     </footer>
-    <script src="app.js?v=29"></script>
+    <script src="app.js?v=32"></script>
   </body>
 </html>
