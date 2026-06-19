@@ -1958,12 +1958,14 @@ h3 {
 }
 
 .story-rail .story-quote {
-  flex: 0 0 min(390px, 82vw);
-  min-height: 360px;
+  flex: 0 0 min(430px, 82vw);
+  min-height: 330px;
   scroll-snap-align: start;
 }
 
 .story-quote {
+  position: relative;
+  overflow: hidden;
   padding-top: 30px;
 }
 
@@ -1988,31 +1990,68 @@ h3 {
 }
 
 .results-stories .story-quote {
+  --story-accent: #f95c02;
   border-color: rgba(191, 87, 0, 0.18);
+  border-left: 8px solid var(--story-accent);
   background:
-    radial-gradient(circle at 90% 10%, rgba(191, 87, 0, 0.14), transparent 28%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.94), rgba(255, 250, 241, 0.7)),
+    radial-gradient(circle at 90% 10%, color-mix(in srgb, var(--story-accent), transparent 86%), transparent 28%),
     rgba(255, 250, 241, 0.88);
 }
 
 .results-stories .story-quote:nth-child(2n) {
+  --story-accent: #aab2bf;
   background:
-    radial-gradient(circle at 12% 82%, rgba(128, 86, 58, 0.16), transparent 30%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.94), rgba(255, 250, 241, 0.74)),
+    radial-gradient(circle at 12% 82%, color-mix(in srgb, var(--story-accent), transparent 82%), transparent 30%),
     rgba(255, 250, 241, 0.9);
 }
 
 .results-stories .story-quote:nth-child(3n) {
-  color: var(--white);
+  --story-accent: #b86b2d;
+  color: var(--ink);
   background:
-    radial-gradient(circle at 88% 16%, rgba(191, 87, 0, 0.28), transparent 28%),
-    linear-gradient(135deg, var(--navy), var(--navy-2));
+    linear-gradient(135deg, rgba(255, 255, 255, 0.94), rgba(255, 250, 241, 0.72)),
+    radial-gradient(circle at 88% 16%, color-mix(in srgb, var(--story-accent), transparent 82%), transparent 28%);
+}
+
+.results-stories .story-quote::before {
+  content: "";
+  position: absolute;
+  right: 24px;
+  top: 22px;
+  width: 36%;
+  height: 10px;
+  background: repeating-linear-gradient(135deg, color-mix(in srgb, var(--story-accent), transparent 55%) 0 8px, transparent 8px 18px);
+  border-radius: 999px;
+  opacity: 0.45;
+}
+
+.results-stories .story-quote::after {
+  content: attr(data-award);
+  position: absolute;
+  right: -10px;
+  bottom: 22px;
+  color: color-mix(in srgb, var(--story-accent), transparent 82%);
+  font-family: var(--display);
+  font-size: clamp(2.6rem, 5vw, 5.2rem);
+  font-weight: 900;
+  line-height: 0.9;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.results-stories .story-quote > * {
+  position: relative;
+  z-index: 1;
 }
 
 .results-stories .story-quote:nth-child(3n) blockquote {
-  color: var(--white);
+  color: var(--ink);
 }
 
 .results-stories .story-quote:nth-child(3n) figcaption {
-  color: rgba(255, 255, 255, 0.72);
+  color: rgba(33, 22, 14, 0.68);
 }
 
 .results-stories .story-avatar {
@@ -4194,12 +4233,12 @@ h3 {
 
 .programme-results .medal-column .result-channel::after {
   position: absolute;
-  right: clamp(28px, 5vw, 78px);
+  right: clamp(70px, 9vw, 150px);
   top: 50%;
   display: block !important;
   color: color-mix(in srgb, var(--channel), transparent 78%);
   font-family: var(--display);
-  font-size: clamp(3.5rem, 8vw, 8rem);
+  font-size: clamp(3.1rem, 6.4vw, 6.4rem);
   font-weight: 900;
   letter-spacing: 0.04em;
   line-height: 1;
@@ -4252,8 +4291,7 @@ h3 {
 }
 
 .programme-results .medal-column .result-channel p {
-  max-width: 460px;
-  color: rgba(33, 22, 14, 0.68);
+  display: none;
 }
 
 .journey-map {
