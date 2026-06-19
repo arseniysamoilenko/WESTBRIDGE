@@ -4067,14 +4067,14 @@ h3 {
 }
 
 .student-head {
-  fill: #fffaf1;
+  fill: #15110e;
 }
 
 .student-body,
 .student-arm,
 .student-leg {
   fill: none;
-  stroke: #fffaf1;
+  stroke: #15110e;
   stroke-width: 6;
   stroke-linecap: round;
   stroke-linejoin: round;
@@ -4373,7 +4373,7 @@ h3 {
 }
 
 .tutor-card:nth-child(2) .tutor-avatar {
-  object-position: center center;
+  object-position: center top;
 }
 
 @media (max-width: 760px) {
