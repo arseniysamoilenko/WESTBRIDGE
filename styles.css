@@ -4047,6 +4047,49 @@ h3 {
   transform: none;
 }
 
+.stair-figure::before,
+.stair-figure::after,
+.stair-figure > span,
+.stair-figure > span::before,
+.stair-figure > span::after {
+  display: none !important;
+}
+
+.student-figure {
+  position: absolute;
+  left: -8px;
+  bottom: calc(100% - 10px);
+  z-index: 4;
+  width: 90px;
+  height: 126px;
+  overflow: visible;
+  filter: drop-shadow(0 14px 20px rgba(15, 9, 5, 0.34));
+}
+
+.student-head {
+  fill: #fffaf1;
+}
+
+.student-body,
+.student-arm,
+.student-leg {
+  fill: none;
+  stroke: #fffaf1;
+  stroke-width: 7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.student-arm {
+  stroke-width: 5.5;
+}
+
+.student-bag {
+  fill: rgba(255, 92, 2, 0.9);
+  stroke: rgba(255, 250, 241, 0.9);
+  stroke-width: 3;
+}
+
 .stair-guide {
   position: absolute;
   left: -38px;
@@ -4140,11 +4183,52 @@ h3 {
 }
 
 .programme-results .medal-column .result-channel::before {
-  display: none !important;
+  content: "";
+  position: absolute;
+  inset: 18px 26px 18px auto;
+  display: block !important;
+  width: min(50%, 520px);
+  background:
+    radial-gradient(circle at 82% 50%, color-mix(in srgb, var(--channel), transparent 75%) 0 8px, transparent 9px),
+    repeating-linear-gradient(135deg, color-mix(in srgb, var(--channel), transparent 68%) 0 2px, transparent 2px 18px),
+    linear-gradient(90deg, transparent, color-mix(in srgb, var(--channel), transparent 82%));
+  border-right: 2px solid color-mix(in srgb, var(--channel), transparent 40%);
+  border-radius: 999px;
+  opacity: 0.72;
+  pointer-events: none;
 }
 
 .programme-results .medal-column .result-channel::after {
-  display: none !important;
+  position: absolute;
+  right: clamp(28px, 5vw, 78px);
+  top: 50%;
+  display: block !important;
+  color: color-mix(in srgb, var(--channel), transparent 78%);
+  font-family: var(--display);
+  font-size: clamp(3.5rem, 8vw, 8rem);
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  text-transform: uppercase;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.programme-results .medal-column .result-gold::after {
+  content: "Gold";
+}
+
+.programme-results .medal-column .result-silver::after {
+  content: "Silver";
+}
+
+.programme-results .medal-column .result-bronze::after {
+  content: "Bronze";
+}
+
+.programme-results .medal-column .result-channel > * {
+  position: relative;
+  z-index: 1;
 }
 
 .programme-results .medal-column .result-channel {
@@ -4231,8 +4315,8 @@ h3 {
 }
 
 .stair-figure em {
-  left: 122px;
-  top: 50px;
+  left: 174px;
+  top: 54px;
   width: 170px;
   color: #ff5c02;
   text-shadow: 0 2px 10px rgba(43, 22, 11, 0.36);
@@ -4259,13 +4343,19 @@ h3 {
 
 .footer-grid {
   display: grid;
-  grid-template-columns: minmax(240px, 1fr) auto minmax(220px, auto);
+  grid-template-columns: minmax(240px, 1fr) minmax(260px, auto) minmax(240px, 1fr);
   align-items: flex-start;
+}
+
+.footer-grid nav {
+  justify-self: center;
+  justify-content: center;
 }
 
 .footer-contact {
   display: grid;
   gap: 8px;
+  justify-self: end;
   text-align: right;
 }
 
@@ -4283,13 +4373,38 @@ h3 {
   object-position: center top;
 }
 
+.tutor-card:nth-child(1) .tutor-avatar,
+.tutor-card:nth-child(3) .tutor-avatar {
+  object-position: center 62%;
+}
+
+.tutor-card:nth-child(2) .tutor-avatar {
+  object-position: center center;
+}
+
 @media (max-width: 760px) {
   .footer-grid {
     grid-template-columns: 1fr;
   }
 
+  .footer-grid nav,
   .footer-contact {
+    justify-self: start;
     text-align: left;
+  }
+
+  .programme-results .medal-column .result-channel::before {
+    inset: auto 20px 18px 20px;
+    width: auto;
+    height: 52px;
+  }
+
+  .programme-results .medal-column .result-channel::after {
+    right: 24px;
+    top: auto;
+    bottom: 20px;
+    font-size: clamp(2.2rem, 15vw, 4rem);
+    transform: none;
   }
 }
 
