@@ -4059,6 +4059,547 @@ h3 {
   }
 }
 
+/* Latest requested polish: keep this final so the visible sections win. */
+.programme-results .medal-column .result-channel {
+  isolation: isolate;
+}
+
+.programme-results .medal-column .result-channel::after {
+  z-index: 0;
+  right: clamp(34px, 7vw, 126px);
+  max-width: none;
+  overflow: visible;
+  color: color-mix(in srgb, var(--channel), transparent 64%);
+  font-size: clamp(4.2rem, 8.6vw, 9rem);
+  line-height: 0.82;
+  opacity: 0.82;
+}
+
+.programme-results .medal-column .result-silver::after {
+  right: clamp(26px, 5vw, 88px);
+  color: color-mix(in srgb, var(--channel), transparent 58%);
+  font-size: clamp(3.6rem, 7.4vw, 7.5rem);
+}
+
+.programme-results .medal-column .result-channel > * {
+  position: relative;
+  z-index: 2;
+}
+
+.university-proof .university-name-field span {
+  display: grid;
+  place-items: center;
+  min-height: 100%;
+  padding: 16px;
+  text-align: center;
+  line-height: 0.9;
+}
+
+.university-proof .university-name-field span:nth-child(8) {
+  font-size: clamp(1.55rem, 3.15vw, 3.6rem);
+}
+
+.why-proof-section {
+  background:
+    linear-gradient(120deg, rgba(255, 255, 255, 0.74), transparent 42%),
+    linear-gradient(180deg, #fffaf1 0%, #f8efe1 100%);
+}
+
+.why-proof-section .why-proof-intro {
+  max-width: 1080px;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.proof-columns {
+  align-items: stretch;
+}
+
+.proof-columns .file-row {
+  min-height: clamp(310px, 28vw, 420px);
+  padding: clamp(24px, 3vw, 36px);
+  background:
+    linear-gradient(155deg, rgba(255, 255, 255, 0.96), rgba(255, 243, 227, 0.72)),
+    linear-gradient(90deg, rgba(249, 92, 2, 0.14), transparent 36%);
+  border: 1px solid rgba(202, 95, 24, 0.18);
+  border-top: 5px solid rgba(249, 92, 2, 0.72);
+  box-shadow: 0 24px 70px rgba(34, 21, 13, 0.08);
+}
+
+.proof-columns .file-row:nth-child(even) {
+  transform: translateY(26px);
+}
+
+.proof-columns .file-row::before {
+  color: rgba(249, 92, 2, 0.1);
+}
+
+.proof-columns .file-row::after {
+  inset: auto -34px -42px auto;
+  width: 150px;
+  height: 150px;
+  border-color: rgba(249, 92, 2, 0.12);
+  border-radius: 36px;
+  transform: rotate(-14deg);
+}
+
+.proof-columns .file-row strong {
+  color: #c74700;
+}
+
+.staircase blockquote {
+  max-width: 760px;
+  font-size: clamp(3.1rem, 6vw, 6.6rem);
+  line-height: 0.88;
+}
+
+.results-hero .hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(280px, 0.7fr);
+  gap: clamp(36px, 7vw, 120px);
+  align-items: center;
+}
+
+.results-medal-scene {
+  position: relative;
+  justify-self: center;
+  width: min(390px, 34vw);
+  min-width: 250px;
+  aspect-ratio: 0.78;
+  filter:
+    drop-shadow(0 0 18px rgba(255, 185, 74, 0.22))
+    drop-shadow(0 34px 58px rgba(0, 0, 0, 0.34));
+}
+
+.results-medal-scene::before {
+  content: "";
+  position: absolute;
+  inset: -20% -30%;
+  background:
+    linear-gradient(128deg, rgba(249, 92, 2, 0.5), rgba(255, 182, 76, 0.2) 38%, transparent 72%),
+    linear-gradient(36deg, transparent 10%, rgba(255, 255, 255, 0.18), transparent 44%);
+  clip-path: polygon(9% 20%, 78% 0, 100% 68%, 36% 100%, 0 70%);
+  filter: blur(16px);
+}
+
+.hero-medal-ribbon {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 56%;
+  height: 56%;
+  transform: translateX(-50%);
+  background:
+    linear-gradient(104deg, transparent 0 22%, rgba(255, 255, 255, 0.86) 23% 32%, transparent 33%),
+    linear-gradient(76deg, transparent 0 58%, rgba(255, 255, 255, 0.88) 59% 68%, transparent 69%),
+    linear-gradient(135deg, #ff5c02, #8c2a08);
+  clip-path: polygon(20% 0, 80% 0, 66% 58%, 88% 100%, 50% 80%, 12% 100%, 34% 58%);
+  box-shadow: inset 0 -18px 0 rgba(21, 17, 14, 0.7);
+}
+
+.hero-medal {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  display: grid;
+  place-items: center;
+  width: 64%;
+  aspect-ratio: 1;
+  transform: translateX(-50%);
+  color: rgba(99, 46, 0, 0.86);
+  background:
+    radial-gradient(circle at 35% 28%, rgba(255, 255, 255, 0.9), transparent 16%),
+    radial-gradient(circle at 50% 50%, #ffd86a 0 36%, #dc970a 37% 64%, #a95d05 65% 100%);
+  border: 12px solid #ffd978;
+  border-radius: 50%;
+  box-shadow:
+    0 0 46px rgba(255, 184, 62, 0.38),
+    inset 0 0 0 8px rgba(133, 78, 5, 0.35);
+  font-family: var(--display);
+  font-size: clamp(3rem, 8vw, 6.5rem);
+  font-weight: 900;
+}
+
+@media (max-width: 880px) {
+  .results-hero .hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .results-medal-scene {
+    width: min(300px, 72vw);
+  }
+
+  .proof-columns .file-row:nth-child(even) {
+    transform: none;
+  }
+}
+
+/* Latest requested polish: keep this final so the visible sections win. */
+.programme-results .medal-column .result-channel {
+  isolation: isolate;
+}
+
+.programme-results .medal-column .result-channel::after {
+  z-index: 0;
+  right: clamp(34px, 7vw, 126px);
+  max-width: none;
+  overflow: visible;
+  color: color-mix(in srgb, var(--channel), transparent 64%);
+  font-size: clamp(4.2rem, 8.6vw, 9rem);
+  line-height: 0.82;
+  opacity: 0.82;
+}
+
+.programme-results .medal-column .result-silver::after {
+  right: clamp(26px, 5vw, 88px);
+  color: color-mix(in srgb, var(--channel), transparent 58%);
+  font-size: clamp(3.6rem, 7.4vw, 7.5rem);
+}
+
+.programme-results .medal-column .result-channel > * {
+  position: relative;
+  z-index: 2;
+}
+
+.university-proof .university-name-field span {
+  display: grid;
+  place-items: center;
+  min-height: 100%;
+  padding: 16px;
+  text-align: center;
+  line-height: 0.9;
+}
+
+.university-proof .university-name-field span:nth-child(8) {
+  font-size: clamp(1.55rem, 3.15vw, 3.6rem);
+}
+
+.why-proof-section {
+  background:
+    linear-gradient(120deg, rgba(255, 255, 255, 0.74), transparent 42%),
+    linear-gradient(180deg, #fffaf1 0%, #f8efe1 100%);
+}
+
+.why-proof-section .why-proof-intro {
+  max-width: 1080px;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.proof-columns {
+  align-items: stretch;
+}
+
+.proof-columns .file-row {
+  min-height: clamp(310px, 28vw, 420px);
+  padding: clamp(24px, 3vw, 36px);
+  background:
+    linear-gradient(155deg, rgba(255, 255, 255, 0.96), rgba(255, 243, 227, 0.72)),
+    linear-gradient(90deg, rgba(249, 92, 2, 0.14), transparent 36%);
+  border: 1px solid rgba(202, 95, 24, 0.18);
+  border-top: 5px solid rgba(249, 92, 2, 0.72);
+  box-shadow: 0 24px 70px rgba(34, 21, 13, 0.08);
+}
+
+.proof-columns .file-row:nth-child(even) {
+  transform: translateY(26px);
+}
+
+.proof-columns .file-row::before {
+  color: rgba(249, 92, 2, 0.1);
+}
+
+.proof-columns .file-row::after {
+  inset: auto -34px -42px auto;
+  width: 150px;
+  height: 150px;
+  border-color: rgba(249, 92, 2, 0.12);
+  border-radius: 36px;
+  transform: rotate(-14deg);
+}
+
+.proof-columns .file-row strong {
+  color: #c74700;
+}
+
+.staircase blockquote {
+  max-width: 760px;
+  font-size: clamp(3.1rem, 6vw, 6.6rem);
+  line-height: 0.88;
+}
+
+.results-hero .hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(280px, 0.7fr);
+  gap: clamp(36px, 7vw, 120px);
+  align-items: center;
+}
+
+.results-medal-scene {
+  position: relative;
+  justify-self: center;
+  width: min(390px, 34vw);
+  min-width: 250px;
+  aspect-ratio: 0.78;
+  filter:
+    drop-shadow(0 0 18px rgba(255, 185, 74, 0.22))
+    drop-shadow(0 34px 58px rgba(0, 0, 0, 0.34));
+}
+
+.results-medal-scene::before {
+  content: "";
+  position: absolute;
+  inset: -20% -30%;
+  background:
+    linear-gradient(128deg, rgba(249, 92, 2, 0.5), rgba(255, 182, 76, 0.2) 38%, transparent 72%),
+    linear-gradient(36deg, transparent 10%, rgba(255, 255, 255, 0.18), transparent 44%);
+  clip-path: polygon(9% 20%, 78% 0, 100% 68%, 36% 100%, 0 70%);
+  filter: blur(16px);
+}
+
+.hero-medal-ribbon {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 56%;
+  height: 56%;
+  transform: translateX(-50%);
+  background:
+    linear-gradient(104deg, transparent 0 22%, rgba(255, 255, 255, 0.86) 23% 32%, transparent 33%),
+    linear-gradient(76deg, transparent 0 58%, rgba(255, 255, 255, 0.88) 59% 68%, transparent 69%),
+    linear-gradient(135deg, #ff5c02, #8c2a08);
+  clip-path: polygon(20% 0, 80% 0, 66% 58%, 88% 100%, 50% 80%, 12% 100%, 34% 58%);
+  box-shadow: inset 0 -18px 0 rgba(21, 17, 14, 0.7);
+}
+
+.hero-medal {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  display: grid;
+  place-items: center;
+  width: 64%;
+  aspect-ratio: 1;
+  transform: translateX(-50%);
+  color: rgba(99, 46, 0, 0.86);
+  background:
+    radial-gradient(circle at 35% 28%, rgba(255, 255, 255, 0.9), transparent 16%),
+    radial-gradient(circle at 50% 50%, #ffd86a 0 36%, #dc970a 37% 64%, #a95d05 65% 100%);
+  border: 12px solid #ffd978;
+  border-radius: 50%;
+  box-shadow:
+    0 0 46px rgba(255, 184, 62, 0.38),
+    inset 0 0 0 8px rgba(133, 78, 5, 0.35);
+  font-family: var(--display);
+  font-size: clamp(3rem, 8vw, 6.5rem);
+  font-weight: 900;
+}
+
+@media (max-width: 880px) {
+  .results-hero .hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .results-medal-scene {
+    width: min(300px, 72vw);
+  }
+
+  .proof-columns .file-row:nth-child(even) {
+    transform: none;
+  }
+}
+
+/* Final review overrides: keep these last. */
+.programme-results .medal-column .result-channel::after {
+  right: clamp(34px, 7vw, 132px);
+  max-width: min(52%, 650px);
+  overflow: visible;
+  color: color-mix(in srgb, var(--channel), transparent 58%);
+  font-size: clamp(3.4rem, 7vw, 7.4rem);
+  line-height: 0.82;
+  opacity: 1;
+}
+
+.programme-results .medal-column .result-silver::after {
+  right: clamp(26px, 5.5vw, 118px);
+  max-width: 54%;
+  color: color-mix(in srgb, var(--channel), transparent 56%);
+  font-size: clamp(3.05rem, 6.1vw, 6.45rem);
+}
+
+.programme-results .medal-column .result-channel span {
+  color: rgba(33, 22, 14, 0.66);
+}
+
+.university-proof .university-name-field span {
+  align-content: center;
+  justify-items: center;
+  padding: 14px;
+  overflow: hidden;
+  text-align: center;
+  line-height: 0.92;
+}
+
+.university-proof .university-name-field span:nth-child(8) {
+  font-size: clamp(1.6rem, 3.2vw, 3.7rem);
+}
+
+.why-university-start {
+  padding-bottom: clamp(44px, 7vw, 84px);
+}
+
+.why-proof-section {
+  padding-top: clamp(72px, 9vw, 118px);
+  background:
+    linear-gradient(180deg, rgba(255, 253, 248, 0.98), rgba(255, 245, 232, 0.92)),
+    radial-gradient(circle at 18% 22%, rgba(249, 92, 2, 0.12), transparent 30%);
+}
+
+.why-proof-section .why-proof-intro {
+  max-width: 1100px;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.why-proof-section .why-proof-intro h2 {
+  margin-inline: auto;
+}
+
+.why-proof-section .why-proof-intro p {
+  max-width: 720px;
+  margin: 18px auto 0;
+}
+
+.proof-columns {
+  counter-reset: proof;
+}
+
+.proof-columns .file-row {
+  counter-increment: proof;
+  isolation: isolate;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(255, 246, 235, 0.84)),
+    radial-gradient(circle at 22% 18%, rgba(249, 92, 2, 0.12), transparent 28%);
+  box-shadow: 0 28px 82px rgba(21, 17, 14, 0.1);
+}
+
+.proof-columns .file-row::before {
+  content: "0" counter(proof);
+  position: absolute;
+  right: 24px;
+  top: 18px;
+  z-index: -1;
+  color: rgba(249, 92, 2, 0.13);
+  font-family: var(--display);
+  font-size: clamp(4rem, 7vw, 7rem);
+  font-weight: 900;
+  line-height: 1;
+}
+
+.proof-columns .file-row::after {
+  width: 130px;
+  border-color: rgba(249, 92, 2, 0.13);
+  border-radius: 34px;
+  transform: rotate(-12deg);
+}
+
+.proof-columns .file-row strong {
+  max-width: none;
+  margin-bottom: clamp(54px, 7vw, 86px);
+  color: #c74700;
+}
+
+.proof-columns .file-row p {
+  color: rgba(33, 22, 14, 0.72);
+}
+
+.proof-columns .file-row em {
+  color: var(--ink);
+}
+
+.staircase blockquote {
+  max-width: 660px;
+  font-size: clamp(2.6rem, 5.2vw, 5.7rem);
+  line-height: 0.9;
+  letter-spacing: 0;
+}
+
+.results-hero .hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(280px, 0.72fr);
+  gap: clamp(32px, 6vw, 96px);
+  align-items: center;
+}
+
+.results-medal-scene {
+  position: relative;
+  justify-self: center;
+  width: min(390px, 34vw);
+  min-width: 250px;
+  aspect-ratio: 0.78;
+  filter: drop-shadow(0 28px 52px rgba(0, 0, 0, 0.36));
+}
+
+.results-medal-scene::before {
+  content: "";
+  position: absolute;
+  inset: -22% -28%;
+  background:
+    linear-gradient(130deg, rgba(249, 92, 2, 0.46), rgba(255, 183, 77, 0.2) 38%, transparent 70%),
+    linear-gradient(34deg, transparent 12%, rgba(255, 255, 255, 0.16), transparent 42%);
+  clip-path: polygon(8% 18%, 78% 0, 100% 68%, 36% 100%, 0 70%);
+  filter: blur(18px);
+  opacity: 0.95;
+}
+
+.hero-medal-ribbon {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 56%;
+  height: 56%;
+  transform: translateX(-50%);
+  background:
+    linear-gradient(104deg, transparent 0 22%, rgba(255, 255, 255, 0.86) 23% 32%, transparent 33%),
+    linear-gradient(76deg, transparent 0 58%, rgba(255, 255, 255, 0.88) 59% 68%, transparent 69%),
+    linear-gradient(135deg, #ff5c02, #8c2a08);
+  clip-path: polygon(20% 0, 80% 0, 66% 58%, 88% 100%, 50% 80%, 12% 100%, 34% 58%);
+  box-shadow: inset 0 -18px 0 rgba(21, 17, 14, 0.7);
+}
+
+.hero-medal {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  display: grid;
+  place-items: center;
+  width: 64%;
+  aspect-ratio: 1;
+  transform: translateX(-50%);
+  color: rgba(99, 46, 0, 0.86);
+  background:
+    radial-gradient(circle at 35% 28%, rgba(255, 255, 255, 0.9), transparent 16%),
+    radial-gradient(circle at 50% 50%, #ffd86a 0 36%, #dc970a 37% 64%, #a95d05 65% 100%);
+  border: 12px solid #ffd978;
+  border-radius: 50%;
+  box-shadow:
+    0 0 46px rgba(255, 184, 62, 0.38),
+    inset 0 0 0 8px rgba(133, 78, 5, 0.35);
+  font-family: var(--display);
+  font-size: clamp(3rem, 8vw, 6.5rem);
+  font-weight: 900;
+}
+
+@media (max-width: 880px) {
+  .results-hero .hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .results-medal-scene {
+    width: min(300px, 72vw);
+  }
+}
+
 /* Restored subject cards; the brain selector is saved in the HTML for later. */
 .brain-lab[hidden],
 .brain-lab-saved {
@@ -5052,6 +5593,235 @@ h3 {
 
   .brain-sector:hover ~ .brain-core,
   .brain-sector:focus-visible ~ .brain-core {
+    transform: none;
+  }
+}
+
+/* True tail overrides for the latest visual pass. */
+.programme-results .medal-column .result-channel::after {
+  right: clamp(34px, 7vw, 132px);
+  max-width: min(52%, 650px);
+  overflow: visible;
+  color: color-mix(in srgb, var(--channel), transparent 58%);
+  font-size: clamp(3.4rem, 7vw, 7.4rem);
+  line-height: 0.82;
+  opacity: 1;
+}
+
+.programme-results .medal-column .result-silver::after {
+  right: clamp(26px, 5.5vw, 118px);
+  max-width: 54%;
+  color: color-mix(in srgb, var(--channel), transparent 56%);
+  font-size: clamp(3.05rem, 6.1vw, 6.45rem);
+}
+
+.university-proof .university-name-field span {
+  align-content: center;
+  justify-items: center;
+  padding: 14px;
+  overflow: hidden;
+  text-align: center;
+  line-height: 0.92;
+}
+
+.university-proof .university-name-field span:nth-child(8) {
+  font-size: clamp(1.6rem, 3.2vw, 3.7rem);
+}
+
+.why-university-start {
+  padding-bottom: clamp(44px, 7vw, 84px);
+}
+
+.staircase blockquote {
+  max-width: 660px;
+  font-size: clamp(2.6rem, 5.2vw, 5.7rem);
+  line-height: 0.9;
+}
+
+.results-hero .hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(280px, 0.72fr);
+  gap: clamp(32px, 6vw, 96px);
+  align-items: center;
+}
+
+@media (max-width: 880px) {
+  .results-hero .hero-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Absolute final overrides for the current review pass. */
+.programme-results .medal-column .result-channel {
+  isolation: isolate;
+}
+
+.programme-results .medal-column .result-channel::after {
+  z-index: 0;
+  right: clamp(34px, 7vw, 126px);
+  max-width: none;
+  overflow: visible;
+  color: color-mix(in srgb, var(--channel), transparent 64%);
+  font-size: clamp(4.2rem, 8.6vw, 9rem);
+  line-height: 0.82;
+  opacity: 0.82;
+}
+
+.programme-results .medal-column .result-silver::after {
+  right: clamp(26px, 5vw, 88px);
+  color: color-mix(in srgb, var(--channel), transparent 58%);
+  font-size: clamp(3.6rem, 7.4vw, 7.5rem);
+}
+
+.programme-results .medal-column .result-channel > * {
+  position: relative;
+  z-index: 2;
+}
+
+.university-proof .university-name-field span {
+  display: grid;
+  place-items: center;
+  min-height: 100%;
+  padding: 16px;
+  text-align: center;
+  line-height: 0.9;
+}
+
+.university-proof .university-name-field span:nth-child(8) {
+  font-size: clamp(1.55rem, 3.15vw, 3.6rem);
+}
+
+.why-proof-section {
+  background:
+    linear-gradient(120deg, rgba(255, 255, 255, 0.74), transparent 42%),
+    linear-gradient(180deg, #fffaf1 0%, #f8efe1 100%);
+}
+
+.why-proof-section .why-proof-intro {
+  max-width: 1080px;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.proof-columns {
+  align-items: stretch;
+}
+
+.proof-columns .file-row {
+  min-height: clamp(310px, 28vw, 420px);
+  padding: clamp(24px, 3vw, 36px);
+  background:
+    linear-gradient(155deg, rgba(255, 255, 255, 0.96), rgba(255, 243, 227, 0.72)),
+    linear-gradient(90deg, rgba(249, 92, 2, 0.14), transparent 36%);
+  border: 1px solid rgba(202, 95, 24, 0.18);
+  border-top: 5px solid rgba(249, 92, 2, 0.72);
+  box-shadow: 0 24px 70px rgba(34, 21, 13, 0.08);
+}
+
+.proof-columns .file-row:nth-child(even) {
+  transform: translateY(26px);
+}
+
+.proof-columns .file-row::before {
+  color: rgba(249, 92, 2, 0.1);
+}
+
+.proof-columns .file-row::after {
+  inset: auto -34px -42px auto;
+  width: 150px;
+  height: 150px;
+  border-color: rgba(249, 92, 2, 0.12);
+  border-radius: 36px;
+  transform: rotate(-14deg);
+}
+
+.proof-columns .file-row strong {
+  color: #c74700;
+}
+
+.staircase blockquote {
+  max-width: 760px;
+  font-size: clamp(3.1rem, 6vw, 6.6rem);
+  line-height: 0.88;
+}
+
+.results-hero .hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(280px, 0.7fr);
+  gap: clamp(36px, 7vw, 120px);
+  align-items: center;
+}
+
+.results-medal-scene {
+  position: relative;
+  justify-self: center;
+  width: min(390px, 34vw);
+  min-width: 250px;
+  aspect-ratio: 0.78;
+  filter:
+    drop-shadow(0 0 18px rgba(255, 185, 74, 0.22))
+    drop-shadow(0 34px 58px rgba(0, 0, 0, 0.34));
+}
+
+.results-medal-scene::before {
+  content: "";
+  position: absolute;
+  inset: -20% -30%;
+  background:
+    linear-gradient(128deg, rgba(249, 92, 2, 0.5), rgba(255, 182, 76, 0.2) 38%, transparent 72%),
+    linear-gradient(36deg, transparent 10%, rgba(255, 255, 255, 0.18), transparent 44%);
+  clip-path: polygon(9% 20%, 78% 0, 100% 68%, 36% 100%, 0 70%);
+  filter: blur(16px);
+}
+
+.hero-medal-ribbon {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 56%;
+  height: 56%;
+  transform: translateX(-50%);
+  background:
+    linear-gradient(104deg, transparent 0 22%, rgba(255, 255, 255, 0.86) 23% 32%, transparent 33%),
+    linear-gradient(76deg, transparent 0 58%, rgba(255, 255, 255, 0.88) 59% 68%, transparent 69%),
+    linear-gradient(135deg, #ff5c02, #8c2a08);
+  clip-path: polygon(20% 0, 80% 0, 66% 58%, 88% 100%, 50% 80%, 12% 100%, 34% 58%);
+  box-shadow: inset 0 -18px 0 rgba(21, 17, 14, 0.7);
+}
+
+.hero-medal {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  display: grid;
+  place-items: center;
+  width: 64%;
+  aspect-ratio: 1;
+  transform: translateX(-50%);
+  color: rgba(99, 46, 0, 0.86);
+  background:
+    radial-gradient(circle at 35% 28%, rgba(255, 255, 255, 0.9), transparent 16%),
+    radial-gradient(circle at 50% 50%, #ffd86a 0 36%, #dc970a 37% 64%, #a95d05 65% 100%);
+  border: 12px solid #ffd978;
+  border-radius: 50%;
+  box-shadow:
+    0 0 46px rgba(255, 184, 62, 0.38),
+    inset 0 0 0 8px rgba(133, 78, 5, 0.35);
+  font-family: var(--display);
+  font-size: clamp(3rem, 8vw, 6.5rem);
+  font-weight: 900;
+}
+
+@media (max-width: 880px) {
+  .results-hero .hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .results-medal-scene {
+    width: min(300px, 72vw);
+  }
+
+  .proof-columns .file-row:nth-child(even) {
     transform: none;
   }
 }
