@@ -4057,13 +4057,13 @@ h3 {
 
 .student-figure {
   position: absolute;
-  left: -8px;
-  bottom: calc(100% - 10px);
+  left: -5px;
+  bottom: -5px;
   z-index: 4;
-  width: 90px;
-  height: 126px;
+  width: 68px;
+  height: 100px;
   overflow: visible;
-  filter: drop-shadow(0 14px 20px rgba(15, 9, 5, 0.34));
+  filter: drop-shadow(0 10px 14px rgba(15, 9, 5, 0.28));
 }
 
 .student-head {
@@ -4075,19 +4075,13 @@ h3 {
 .student-leg {
   fill: none;
   stroke: #fffaf1;
-  stroke-width: 7;
+  stroke-width: 6;
   stroke-linecap: round;
   stroke-linejoin: round;
 }
 
 .student-arm {
-  stroke-width: 5.5;
-}
-
-.student-bag {
-  fill: rgba(255, 92, 2, 0.9);
-  stroke: rgba(255, 250, 241, 0.9);
-  stroke-width: 3;
+  stroke-width: 5;
 }
 
 .stair-guide {
