@@ -4121,6 +4121,116 @@ h3 {
   align-items: stretch;
 }
 
+/* Final polish: compact medal marks, safer university tiles, and non-overlapping story paths. */
+.programme-results .medal-column .result-channel::before {
+  inset: auto;
+  left: clamp(282px, 36.5%, 475px);
+  top: calc(50% - 48px);
+  width: 22px;
+  height: 22px;
+  border: 5px solid var(--channel);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.58);
+  box-shadow: 0 8px 18px color-mix(in srgb, var(--channel), transparent 74%);
+  opacity: 0.95;
+  transform: none;
+}
+
+.programme-results .medal-column .result-channel::after {
+  left: clamp(320px, 39%, 500px);
+  max-width: calc(100% - 360px);
+  color: color-mix(in srgb, var(--channel), transparent 72%);
+  font-size: clamp(4.25rem, 7.6vw, 8.2rem);
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+
+.programme-results .medal-column .result-silver::after {
+  left: clamp(320px, 39%, 500px);
+  max-width: calc(100% - 360px);
+  font-size: clamp(4.25rem, 7.6vw, 8.2rem);
+}
+
+.why-university-start .university-name-field span:nth-child(3) {
+  font-size: clamp(2.2rem, 3.75vw, 4.6rem);
+}
+
+.results-stories .story-quote {
+  min-height: clamp(430px, 32vw, 540px);
+  padding-bottom: clamp(150px, 11vw, 190px);
+  overflow: hidden;
+}
+
+.results-stories .story-quote blockquote,
+.results-stories .story-quote figcaption {
+  position: relative;
+  z-index: 4;
+}
+
+.results-stories .story-with-path figcaption {
+  max-width: min(96%, 520px);
+}
+
+.story-path {
+  position: absolute;
+  left: clamp(34px, 4vw, 58px);
+  right: clamp(34px, 4vw, 58px);
+  bottom: clamp(92px, 7.2vw, 124px);
+  z-index: 3;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  max-width: calc(100% - 68px);
+}
+
+.story-path span {
+  white-space: nowrap;
+}
+
+.story-path i {
+  flex: 0 0 22px;
+  width: 22px;
+}
+
+.story-university {
+  right: clamp(34px, 4vw, 58px);
+  bottom: clamp(20px, 2.3vw, 34px);
+  width: calc(100% - 68px);
+  z-index: 1;
+  text-align: right;
+  line-height: 0.85;
+  font-size: clamp(3.15rem, 5.4vw, 6.25rem);
+}
+
+@media (max-width: 760px) {
+  .programme-results .medal-column .result-channel::before {
+    left: auto;
+    right: 28px;
+    top: 28px;
+  }
+
+  .programme-results .medal-column .result-channel::after,
+  .programme-results .medal-column .result-silver::after {
+    left: auto;
+    right: 28px;
+    max-width: 42%;
+    font-size: clamp(3rem, 15vw, 5.2rem);
+    text-align: right;
+  }
+
+  .story-path {
+    left: 24px;
+    right: 24px;
+    max-width: calc(100% - 48px);
+  }
+
+  .story-university {
+    right: 24px;
+    width: calc(100% - 48px);
+  }
+}
+
 .proof-columns .file-row {
   min-height: clamp(310px, 28vw, 420px);
   padding: clamp(24px, 3vw, 36px);
@@ -4237,6 +4347,116 @@ h3 {
 
   .proof-columns .file-row:nth-child(even) {
     transform: none;
+  }
+}
+
+/* True final overrides for the current review pass. */
+.programme-results .medal-column .result-channel::before {
+  inset: auto;
+  left: clamp(282px, 36.5%, 475px);
+  top: calc(50% - 48px);
+  width: 22px;
+  height: 22px;
+  border: 5px solid var(--channel);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.58);
+  box-shadow: 0 8px 18px color-mix(in srgb, var(--channel), transparent 74%);
+  opacity: 0.95;
+  transform: none;
+}
+
+.programme-results .medal-column .result-channel::after {
+  left: clamp(320px, 39%, 500px);
+  max-width: calc(100% - 360px);
+  color: color-mix(in srgb, var(--channel), transparent 72%);
+  font-size: clamp(4.25rem, 7.6vw, 8.2rem);
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+
+.programme-results .medal-column .result-silver::after {
+  left: clamp(320px, 39%, 500px);
+  max-width: calc(100% - 360px);
+  font-size: clamp(4.25rem, 7.6vw, 8.2rem);
+}
+
+.why-university-start .university-name-field span:nth-child(3) {
+  font-size: clamp(2.2rem, 3.75vw, 4.6rem);
+}
+
+.results-stories .story-quote {
+  min-height: clamp(430px, 32vw, 540px);
+  padding-bottom: clamp(150px, 11vw, 190px);
+  overflow: hidden;
+}
+
+.results-stories .story-quote blockquote,
+.results-stories .story-quote figcaption {
+  position: relative;
+  z-index: 4;
+}
+
+.results-stories .story-with-path figcaption {
+  max-width: min(96%, 520px);
+}
+
+.story-path {
+  position: absolute;
+  left: clamp(34px, 4vw, 58px);
+  right: clamp(34px, 4vw, 58px);
+  bottom: clamp(92px, 7.2vw, 124px);
+  z-index: 3;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  max-width: calc(100% - 68px);
+}
+
+.story-path span {
+  white-space: nowrap;
+}
+
+.story-path i {
+  flex: 0 0 22px;
+  width: 22px;
+}
+
+.story-university {
+  right: clamp(34px, 4vw, 58px);
+  bottom: clamp(20px, 2.3vw, 34px);
+  width: calc(100% - 68px);
+  z-index: 1;
+  text-align: right;
+  line-height: 0.85;
+  font-size: clamp(3.15rem, 5.4vw, 6.25rem);
+}
+
+@media (max-width: 760px) {
+  .programme-results .medal-column .result-channel::before {
+    left: auto;
+    right: 28px;
+    top: 28px;
+  }
+
+  .programme-results .medal-column .result-channel::after,
+  .programme-results .medal-column .result-silver::after {
+    left: auto;
+    right: 28px;
+    max-width: 42%;
+    font-size: clamp(3rem, 15vw, 5.2rem);
+    text-align: right;
+  }
+
+  .story-path {
+    left: 24px;
+    right: 24px;
+    max-width: calc(100% - 48px);
+  }
+
+  .story-university {
+    right: 24px;
+    width: calc(100% - 48px);
   }
 }
 
